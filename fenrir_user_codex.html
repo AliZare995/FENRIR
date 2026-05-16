@@ -1,0 +1,2520 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐺 The Fenrir Codex — راهنمای جامع کاربر | LifeOps v7</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Reem+Kufi+Fun:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700;800;900&family=Lalezar&display=swap" rel="stylesheet">
+<style>
+:root{
+  --g:#00ff88;--cy:#00d4ff;--pu:#9b59ff;--pu2:#6c2fff;
+  --vi:#c084fc;--re:#ff4466;--am:#ffb700;--wh:#e8f0ff;
+  --mag:#ff3ec9;--au:#9dffb0;--gold:#ffd700;
+  --bg0:#000008;--bg1:#04001e;--bg2:#08043a;
+  --bd:rgba(155,89,255,.22);--bdg:rgba(0,255,136,.18);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:linear-gradient(180deg,#000008 0%,#04001e 30%,#08043a 60%,#04001e 100%);
+  color:var(--wh);
+  font-family:'Vazirmatn','Rajdhani',Tahoma,'Segoe UI',sans-serif;
+  font-size:16px;line-height:1.9;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+body::before{
+  content:'';position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 10% 20%, rgba(108,47,255,.18) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 80%, rgba(0,255,136,.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(0,212,255,.06) 0%, transparent 70%);
+}
+/* Cosmic dots — starfield */
+body::after{
+  content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:
+    radial-gradient(1px 1px at 10% 30%, rgba(255,255,255,.5) 0%, transparent 50%),
+    radial-gradient(1px 1px at 20% 70%, rgba(155,89,255,.6) 0%, transparent 50%),
+    radial-gradient(2px 2px at 30% 20%, rgba(0,255,136,.5) 0%, transparent 50%),
+    radial-gradient(1px 1px at 50% 50%, rgba(0,212,255,.6) 0%, transparent 50%),
+    radial-gradient(1px 1px at 70% 30%, rgba(192,132,252,.5) 0%, transparent 50%),
+    radial-gradient(2px 2px at 80% 80%, rgba(255,255,255,.4) 0%, transparent 50%),
+    radial-gradient(1px 1px at 90% 10%, rgba(0,255,136,.6) 0%, transparent 50%),
+    radial-gradient(1px 1px at 15% 90%, rgba(155,89,255,.5) 0%, transparent 50%),
+    radial-gradient(2px 2px at 60% 15%, rgba(255,215,0,.4) 0%, transparent 50%),
+    radial-gradient(1px 1px at 40% 85%, rgba(255,62,201,.4) 0%, transparent 50%);
+  background-size: 100% 100%;
+  animation: starfield 80s linear infinite;
+}
+@keyframes starfield{
+  from{background-position:0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0,0 0}
+  to{background-position:100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%}
+}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* ═══ HERO ═══ */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:60px 24px;
+  position:relative;
+}
+.hero-eyebrow{
+  font-family:'Share Tech Mono',monospace;
+  font-size:.78rem;letter-spacing:.4em;
+  color:rgba(155,89,255,.7);
+  margin-bottom:2rem;
+  text-transform:uppercase;
+}
+.hero-wolf{
+  font-size:6rem;margin-bottom:1.2rem;
+  filter:drop-shadow(0 0 40px rgba(155,89,255,.7));
+  animation:pulse 3s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{transform:scale(1);filter:drop-shadow(0 0 40px rgba(155,89,255,.7))}50%{transform:scale(1.08);filter:drop-shadow(0 0 70px rgba(0,255,136,.9))}}
+.hero h1{
+  font-family:'Orbitron','Reem Kufi Fun',monospace;
+  font-size:clamp(2.6rem,8vw,6rem);
+  font-weight:900;letter-spacing:.08em;line-height:1;
+  margin-bottom:1.4rem;
+  background:linear-gradient(135deg,var(--g) 0%,var(--cy) 25%,var(--vi) 55%,var(--mag) 80%,var(--gold) 100%);
+  background-size:300% 300%;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:shm 6s linear infinite;
+  filter:drop-shadow(0 0 30px rgba(155,89,255,.4));
+}
+@keyframes shm{0%{background-position:0% 0%}100%{background-position:300% 300%}}
+.hero h2{
+  font-family:'Reem Kufi Fun','Orbitron',monospace;
+  font-size:clamp(1rem,2.5vw,1.5rem);
+  font-weight:500;letter-spacing:.25em;
+  color:rgba(232,240,255,.85);
+  margin-bottom:1.8rem;
+}
+.hero .tagline{
+  font-family:'Vazirmatn',Tahoma,sans-serif;
+  font-size:clamp(1.05rem,2.4vw,1.4rem);
+  font-weight:300;line-height:1.85;
+  color:rgba(232,240,255,.7);
+  max-width:740px;margin:0 auto 3rem;
+}
+.hero .promise{
+  font-family:'Reem Kufi Fun','Vazirmatn',sans-serif;
+  font-size:clamp(1.15rem,2.6vw,1.5rem);
+  font-style:italic;font-weight:500;
+  color:var(--vi);
+  text-shadow:0 0 25px rgba(155,89,255,.5);
+  max-width:680px;margin:0 auto 3rem;
+  line-height:1.7;
+}
+.hero-stats{
+  display:flex;gap:36px;flex-wrap:wrap;justify-content:center;
+  margin-top:2rem;
+}
+.hero-stat{
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  padding:14px 24px;
+  background:rgba(8,2,40,.6);
+  border:1px solid var(--bd);
+  border-radius:14px;
+  backdrop-filter:blur(8px);
+  min-width:130px;
+}
+.hero-stat-val{
+  font-family:'Orbitron',monospace;
+  font-size:1.7rem;font-weight:900;
+  color:var(--g);
+  text-shadow:0 0 20px rgba(0,255,136,.5);
+}
+.hero-stat-lbl{
+  font-family:'Share Tech Mono',monospace;
+  font-size:.65rem;letter-spacing:2px;
+  color:rgba(155,89,255,.6);
+  text-transform:uppercase;
+}
+.hero-scroll{
+  position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
+  font-family:'Share Tech Mono',monospace;
+  font-size:.7rem;letter-spacing:3px;
+  color:rgba(155,89,255,.55);
+  animation:bob 2s ease-in-out infinite;
+}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-8px)}}
+
+/* ═══ SECTIONS ═══ */
+.sect{padding:100px 0;position:relative}
+.sect-num{
+  font-family:'Orbitron',monospace;
+  font-size:7rem;font-weight:900;
+  color:rgba(155,89,255,.07);
+  position:absolute;top:30px;left:-20px;
+  line-height:1;letter-spacing:-.05em;
+  pointer-events:none;
+  z-index:0;
+}
+.sect-tag{
+  display:inline-block;
+  font-family:'Share Tech Mono',monospace;
+  font-size:.72rem;letter-spacing:.32em;
+  color:var(--g);
+  padding:7px 16px;
+  border:1px solid rgba(0,255,136,.4);
+  border-radius:6px;
+  background:rgba(0,255,136,.06);
+  margin-bottom:1.4rem;
+  position:relative;z-index:1;
+}
+h1.sect-title,h2.sect-title{
+  font-family:'Orbitron','Reem Kufi Fun',monospace;
+  font-size:clamp(2.2rem,5vw,3.8rem);
+  font-weight:900;letter-spacing:.04em;
+  line-height:1.15;
+  margin-bottom:1.2rem;
+  background:linear-gradient(135deg,var(--wh) 0%,var(--vi) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  position:relative;z-index:1;
+}
+.sect-sub{
+  font-family:'Vazirmatn',Tahoma,sans-serif;
+  font-size:1.18rem;font-weight:300;line-height:1.85;
+  color:rgba(232,240,255,.7);
+  max-width:820px;margin-bottom:3.5rem;
+  position:relative;z-index:1;
+}
+h3{
+  font-family:'Orbitron','Reem Kufi Fun',monospace;
+  font-size:1.6rem;font-weight:700;letter-spacing:.03em;
+  color:var(--vi);
+  margin:3rem 0 1.2rem;
+  padding-bottom:.7rem;
+  border-bottom:1px solid rgba(155,89,255,.25);
+  display:flex;align-items:center;gap:14px;
+}
+h3::before{
+  content:'';width:8px;height:28px;
+  background:linear-gradient(180deg,var(--g),var(--cy),var(--vi));
+  border-radius:4px;
+  box-shadow:0 0 14px var(--vi);
+}
+h4{
+  font-family:'Reem Kufi Fun','Orbitron',monospace;
+  font-size:1.22rem;font-weight:600;
+  color:var(--cy);
+  margin:1.8rem 0 .9rem;
+  display:flex;align-items:center;gap:12px;
+  flex-wrap:wrap;
+}
+h4 .num{
+  font-family:'Orbitron',monospace;
+  font-size:.78rem;
+  background:rgba(0,212,255,.14);
+  border:1px solid rgba(0,212,255,.45);
+  border-radius:6px;
+  padding:4px 12px;
+  color:var(--cy);
+  letter-spacing:1px;
+}
+
+p{margin-bottom:1.2rem;color:rgba(232,240,255,.88)}
+p.lead{
+  font-size:1.22rem;line-height:1.9;
+  color:rgba(232,240,255,.95);
+  margin-bottom:2rem;
+}
+strong{color:var(--g);font-weight:700}
+em{color:var(--vi);font-style:normal;font-weight:600}
+code{
+  font-family:'Share Tech Mono',monospace;
+  background:rgba(155,89,255,.14);
+  border:1px solid rgba(155,89,255,.3);
+  padding:3px 9px;border-radius:5px;
+  font-size:.88em;color:var(--vi);
+}
+.gold{color:var(--gold);font-weight:700}
+.mag{color:var(--mag);font-weight:600}
+
+a{color:var(--cy);text-decoration:none;border-bottom:1px dashed rgba(0,212,255,.4)}
+a:hover{color:var(--g);border-bottom-color:var(--g)}
+
+/* ═══ CARDS / BLOCKS ═══ */
+.card{
+  background:linear-gradient(135deg,rgba(8,2,40,.75),rgba(4,0,28,.9));
+  border:1px solid var(--bd);
+  border-radius:20px;
+  padding:2rem 2.2rem;
+  margin:1.5rem 0;
+  position:relative;overflow:hidden;
+  backdrop-filter:blur(10px);
+  box-shadow:0 10px 40px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.04);
+}
+.card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--vi) 30%,var(--g) 70%,transparent);
+  opacity:.7;
+}
+.card-emerald{border-color:rgba(0,255,136,.45)}
+.card-emerald::before{background:linear-gradient(90deg,transparent,var(--g),transparent);opacity:.9}
+.card-red{border-color:rgba(255,68,102,.45);background:linear-gradient(135deg,rgba(40,2,8,.75),rgba(28,0,4,.9))}
+.card-red::before{background:linear-gradient(90deg,transparent,var(--re),transparent);opacity:.9}
+.card-amber{border-color:rgba(255,183,0,.45)}
+.card-amber::before{background:linear-gradient(90deg,transparent,var(--am),transparent);opacity:.9}
+.card-cyan{border-color:rgba(0,212,255,.45)}
+.card-cyan::before{background:linear-gradient(90deg,transparent,var(--cy),transparent);opacity:.9}
+.card-gold{border-color:rgba(255,215,0,.5);background:linear-gradient(135deg,rgba(30,22,2,.75),rgba(20,15,0,.9))}
+.card-gold::before{background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.9}
+
+.callout{
+  display:flex;gap:18px;align-items:flex-start;
+  padding:1.4rem 1.8rem;
+  background:rgba(155,89,255,.09);
+  border-right:4px solid var(--vi);
+  border-radius:12px 0 0 12px;
+  margin:1.6rem 0;
+}
+.callout-emerald{background:rgba(0,255,136,.1);border-right-color:var(--g)}
+.callout-red{background:rgba(255,68,102,.1);border-right-color:var(--re)}
+.callout-amber{background:rgba(255,183,0,.1);border-right-color:var(--am)}
+.callout-cyan{background:rgba(0,212,255,.1);border-right-color:var(--cy)}
+.callout-gold{background:rgba(255,215,0,.1);border-right-color:var(--gold)}
+.callout-ico{font-size:1.8rem;flex-shrink:0;line-height:1;filter:drop-shadow(0 0 10px currentColor)}
+.callout-body{flex:1}
+.callout-title{
+  font-family:'Reem Kufi Fun','Orbitron',monospace;
+  font-weight:700;font-size:1.08rem;
+  color:var(--vi);margin-bottom:.5rem;
+}
+.callout-emerald .callout-title{color:var(--g)}
+.callout-red .callout-title{color:var(--re)}
+.callout-amber .callout-title{color:var(--am)}
+.callout-cyan .callout-title{color:var(--cy)}
+.callout-gold .callout-title{color:var(--gold)}
+
+ul,ol{margin:0 0 1.3rem 1.6rem;padding:0}
+ul li,ol li{margin-bottom:.7rem;color:rgba(232,240,255,.88);line-height:1.8}
+ul li::marker{color:var(--vi)}
+ol li::marker{color:var(--g);font-weight:700;font-family:'Orbitron',monospace}
+
+/* ═══ TOC ═══ */
+.toc{
+  background:linear-gradient(135deg,rgba(8,2,40,.9),rgba(4,0,28,.97));
+  border:1px solid var(--bd);
+  border-radius:24px;
+  padding:2.8rem;
+  margin:3rem 0;
+  position:relative;overflow:hidden;
+}
+.toc::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 20% 30%, rgba(155,89,255,.1) 0%, transparent 50%);
+  pointer-events:none;
+}
+.toc-title{
+  font-family:'Orbitron',monospace;
+  font-size:.82rem;letter-spacing:.45em;
+  color:var(--g);margin-bottom:1.6rem;
+  text-transform:uppercase;
+  text-shadow:0 0 14px rgba(0,255,136,.4);
+}
+.toc ol{
+  list-style:none;margin:0;padding:0;
+}
+.toc li{margin-bottom:.7rem;border-bottom:1px dashed rgba(155,89,255,.18);padding-bottom:.6rem;position:relative}
+.toc li::marker{content:none}
+.toc a{
+  display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+  font-family:'Reem Kufi Fun',sans-serif;
+  font-size:1rem;
+  color:rgba(232,240,255,.82);
+  border:none;
+  transition:color .25s,padding-right .25s;
+}
+.toc a:hover{color:var(--g);padding-right:10px}
+.toc a .num{
+  font-family:'Share Tech Mono',monospace;
+  font-size:.72rem;color:var(--vi);
+  letter-spacing:1.5px;
+  flex-shrink:0;
+}
+.toc a .ico{font-size:1.2rem;margin-left:8px}
+
+/* ═══ TABLE ═══ */
+.tbl-wrap{overflow-x:auto;margin:1.5rem 0;border-radius:14px;border:1px solid var(--bd)}
+table{
+  width:100%;border-collapse:collapse;
+  background:rgba(4,0,28,.65);
+  font-family:'Vazirmatn',sans-serif;font-size:.96rem;
+}
+th{
+  background:linear-gradient(135deg,rgba(155,89,255,.28),rgba(108,47,255,.2));
+  color:var(--wh);
+  font-family:'Reem Kufi Fun','Orbitron',monospace;
+  font-weight:600;letter-spacing:.05em;
+  padding:15px 20px;
+  text-align:right;border-bottom:2px solid var(--vi);
+}
+td{
+  padding:14px 20px;
+  border-bottom:1px solid rgba(155,89,255,.14);
+  color:rgba(232,240,255,.85);
+  vertical-align:top;
+}
+tr:hover td{background:rgba(155,89,255,.06)}
+tr:last-child td{border-bottom:none}
+
+/* ═══ FEATURE CARD ═══ */
+.feature{
+  background:linear-gradient(135deg,rgba(8,2,40,.7),rgba(4,0,28,.88));
+  border:1px solid var(--bd);
+  border-radius:18px;
+  padding:1.6rem 1.8rem;
+  margin:1.2rem 0;
+  position:relative;
+  transition:transform .25s,border-color .25s,box-shadow .25s;
+}
+.feature:hover{
+  transform:translateY(-3px);
+  border-color:var(--vi);
+  box-shadow:0 12px 36px rgba(155,89,255,.2);
+}
+.feature-header{
+  display:flex;align-items:center;gap:14px;margin-bottom:1rem;
+  padding-bottom:.8rem;
+  border-bottom:1px solid rgba(155,89,255,.18);
+}
+.feature-icon{
+  font-size:2rem;
+  filter:drop-shadow(0 0 12px currentColor);
+}
+.feature-title{
+  font-family:'Reem Kufi Fun','Orbitron',monospace;
+  font-size:1.18rem;font-weight:700;
+  color:var(--wh);
+  flex:1;
+}
+.feature-tag{
+  font-family:'Share Tech Mono',monospace;
+  font-size:.7rem;letter-spacing:1.5px;
+  color:var(--cy);
+  padding:3px 9px;
+  background:rgba(0,212,255,.1);
+  border:1px solid rgba(0,212,255,.3);
+  border-radius:6px;
+}
+.feature-body p:last-child{margin-bottom:0}
+
+/* ═══ SCENARIO BOX ═══ */
+.scenario{
+  background:linear-gradient(135deg,rgba(12,4,50,.85),rgba(6,0,30,.95));
+  border:1px solid var(--bd);
+  border-radius:22px;
+  padding:2rem 2.2rem;
+  margin:2rem 0;
+  position:relative;
+  overflow:hidden;
+}
+.scenario::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--g),var(--cy),var(--vi),var(--mag));
+}
+.scenario-header{
+  font-family:'Orbitron',monospace;
+  font-size:.78rem;letter-spacing:.35em;
+  color:var(--mag);
+  text-transform:uppercase;
+  margin-bottom:.5rem;
+  text-shadow:0 0 10px rgba(255,62,201,.4);
+}
+.scenario-title{
+  font-family:'Reem Kufi Fun','Orbitron',monospace;
+  font-size:1.5rem;font-weight:700;
+  color:var(--wh);margin-bottom:.8rem;
+}
+.scenario-persona{
+  font-family:'Vazirmatn',sans-serif;
+  font-size:.98rem;
+  color:rgba(232,240,255,.6);font-style:italic;
+  margin-bottom:1.6rem;
+  padding-bottom:1rem;
+  border-bottom:1px dashed rgba(155,89,255,.25);
+}
+.timeline{
+  position:relative;padding-right:36px;margin:1.4rem 0;
+}
+.timeline::before{
+  content:'';position:absolute;top:0;bottom:0;right:8px;width:2px;
+  background:linear-gradient(180deg,var(--g) 0%,var(--cy) 30%,var(--vi) 60%,var(--mag) 100%);
+}
+.tl-item{position:relative;margin-bottom:1.8rem;padding-right:30px}
+.tl-item::before{
+  content:'';position:absolute;right:-4px;top:8px;width:16px;height:16px;
+  background:radial-gradient(circle,var(--g),var(--cy));
+  border-radius:50%;
+  box-shadow:0 0 14px var(--cy),0 0 26px rgba(0,212,255,.4);
+  border:2px solid var(--bg1);
+}
+.tl-time{
+  font-family:'Share Tech Mono',monospace;
+  font-size:.78rem;letter-spacing:2px;
+  color:var(--mag);margin-bottom:6px;font-weight:700;
+}
+.tl-body{
+  color:rgba(232,240,255,.85);line-height:1.8;
+}
+.tl-body .who{color:var(--vi);font-weight:600}
+.tl-body .fenrir{color:var(--g);font-weight:600}
+
+.scenario-result{
+  background:linear-gradient(135deg,rgba(0,255,136,.08),rgba(0,212,255,.04));
+  border:1px solid rgba(0,255,136,.3);
+  border-radius:12px;
+  padding:1.1rem 1.4rem;
+  margin-top:1.4rem;
+  display:flex;gap:14px;align-items:flex-start;
+}
+.scenario-result-ico{font-size:1.4rem;flex-shrink:0;line-height:1.4}
+.scenario-result-body{flex:1;color:rgba(232,240,255,.92);font-weight:500}
+
+/* ═══ FAQ ═══ */
+.faq-item{
+  background:rgba(8,2,40,.55);
+  border:1px solid var(--bd);
+  border-radius:14px;
+  padding:1.4rem 1.6rem;
+  margin-bottom:1rem;
+  transition:border-color .25s;
+}
+.faq-item:hover{border-color:var(--vi)}
+.faq-q{
+  font-family:'Reem Kufi Fun','Orbitron',monospace;
+  font-size:1.1rem;font-weight:600;
+  color:var(--cy);margin-bottom:.7rem;
+  display:flex;align-items:flex-start;gap:10px;
+}
+.faq-q::before{
+  content:'◇';color:var(--vi);font-size:1.3rem;flex-shrink:0;
+}
+.faq-a{
+  color:rgba(232,240,255,.82);
+  line-height:1.8;
+  padding-right:24px;
+}
+
+/* ═══ TWO-COL & THREE-COL ═══ */
+.two-col{
+  display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:1.5rem 0;
+}
+@media(max-width:760px){.two-col{grid-template-columns:1fr}}
+.three-col{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:1.5rem 0;
+}
+@media(max-width:760px){.three-col{grid-template-columns:1fr}}
+
+/* ═══ STAT GRID ═══ */
+.stat-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:18px;margin:2rem 0;
+}
+.stat{
+  padding:1.4rem 1.2rem;text-align:center;
+  background:linear-gradient(135deg,rgba(8,2,40,.75),rgba(4,0,28,.92));
+  border:1px solid var(--bd);border-radius:16px;
+  transition:transform .25s,border-color .25s,box-shadow .25s;
+}
+.stat:hover{transform:translateY(-4px);border-color:var(--vi);box-shadow:0 10px 30px rgba(155,89,255,.2)}
+.stat-val{
+  font-family:'Orbitron',monospace;
+  font-size:2.2rem;font-weight:900;line-height:1;
+  background:linear-gradient(135deg,var(--g),var(--cy),var(--vi));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:.5rem;
+}
+.stat-lbl{
+  font-family:'Share Tech Mono',monospace;
+  font-size:.7rem;letter-spacing:2px;color:rgba(155,89,255,.7);
+  text-transform:uppercase;
+}
+
+/* ═══ DIVIDER ═══ */
+.divider{
+  height:1px;margin:4rem 0;border:none;
+  background:linear-gradient(90deg,transparent,var(--vi) 50%,transparent);
+}
+.divider-fancy{
+  text-align:center;margin:4rem 0 3rem;color:rgba(155,89,255,.4);
+  font-family:'Orbitron',monospace;font-size:1.5rem;letter-spacing:1em;
+}
+
+/* ═══ QUOTE ═══ */
+blockquote{
+  margin:2.4rem 0;padding:1.8rem 2.2rem;
+  background:linear-gradient(135deg,rgba(155,89,255,.1),rgba(0,212,255,.05));
+  border-right:5px solid var(--vi);
+  border-radius:0 16px 16px 0;
+  font-size:1.22rem;line-height:1.9;
+  font-family:'Reem Kufi Fun','Vazirmatn',serif;
+  font-style:italic;
+  color:rgba(232,240,255,.95);
+  position:relative;
+}
+blockquote::before{
+  content:'❝';position:absolute;top:-24px;right:20px;
+  font-size:5rem;color:var(--vi);opacity:.4;font-family:Georgia,serif;
+}
+
+/* ═══ STEP CARD ═══ */
+.step{
+  display:flex;gap:20px;margin:1.6rem 0;
+  background:rgba(8,2,40,.6);
+  border:1px solid var(--bd);
+  border-radius:18px;padding:1.6rem 1.8rem;
+  align-items:flex-start;
+}
+.step-num{
+  width:50px;height:50px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--vi),var(--pu2));
+  border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Orbitron',monospace;
+  font-size:1.5rem;font-weight:900;
+  color:var(--wh);
+  box-shadow:0 6px 20px rgba(155,89,255,.4);
+}
+.step-body{flex:1}
+.step-title{
+  font-family:'Reem Kufi Fun','Orbitron',monospace;
+  font-size:1.18rem;font-weight:700;
+  color:var(--cy);margin-bottom:.5rem;
+}
+
+/* ═══ COMPARISON ═══ */
+.vs-table{
+  display:grid;grid-template-columns:2fr 1fr 1fr;gap:0;
+  background:rgba(4,0,28,.7);
+  border:1px solid var(--bd);
+  border-radius:14px;
+  overflow:hidden;
+  margin:1.5rem 0;
+}
+.vs-h{
+  padding:14px 16px;font-weight:700;
+  font-family:'Reem Kufi Fun','Orbitron',monospace;
+  background:linear-gradient(135deg,rgba(155,89,255,.25),rgba(108,47,255,.18));
+  border-bottom:2px solid var(--vi);
+}
+.vs-h.them{color:rgba(232,240,255,.7)}
+.vs-h.us{color:var(--g);text-shadow:0 0 12px rgba(0,255,136,.4)}
+.vs-row{padding:13px 16px;border-bottom:1px solid rgba(155,89,255,.13);color:rgba(232,240,255,.85)}
+.vs-row.label{color:var(--vi);font-weight:600}
+.vs-row.us{color:var(--g);font-weight:600}
+
+/* ═══ FOOTER ═══ */
+footer{
+  margin-top:8rem;padding:5rem 24px 4rem;
+  text-align:center;
+  background:linear-gradient(180deg,transparent 0%,rgba(0,0,8,.85) 50%,#000008 100%);
+  border-top:1px solid var(--bd);
+}
+.footer-wolves{font-size:3.5rem;margin-bottom:1.4rem;filter:drop-shadow(0 0 24px var(--vi));letter-spacing:.6em}
+.footer-quote{
+  font-family:'Reem Kufi Fun','Vazirmatn',sans-serif;
+  font-size:1.18rem;font-style:italic;
+  color:var(--vi);
+  max-width:620px;margin:0 auto 2rem;
+  line-height:1.85;
+  text-shadow:0 0 20px rgba(155,89,255,.3);
+}
+.footer-welcome{
+  font-family:'Orbitron',monospace;
+  font-size:1rem;letter-spacing:.35em;
+  color:var(--g);margin-bottom:1.6rem;
+  text-shadow:0 0 16px rgba(0,255,136,.4);
+}
+.footer-sign{
+  font-family:'Orbitron',monospace;
+  font-size:.85rem;letter-spacing:.3em;
+  color:rgba(155,89,255,.6);margin-bottom:.6rem;
+}
+.footer-meta{
+  font-family:'Share Tech Mono',monospace;
+  font-size:.72rem;letter-spacing:2px;
+  color:rgba(155,89,255,.4);
+}
+
+/* ═══ PRINT ═══ */
+@media print{
+  body{background:white;color:black}
+  body::before,body::after{display:none}
+  .hero{min-height:auto}
+  .sect{page-break-inside:avoid;padding:30px 0}
+}
+
+/* ═══ MOBILE ═══ */
+@media(max-width:680px){
+  body{font-size:15px}
+  .sect{padding:60px 0}
+  .sect-num{font-size:4.5rem}
+  h3{font-size:1.35rem}
+  h4{font-size:1.1rem}
+  .scenario{padding:1.4rem 1.4rem}
+  .timeline{padding-right:24px}
+  .step{flex-direction:column;gap:14px}
+  .step-num{width:44px;height:44px}
+  .vs-table{grid-template-columns:1.5fr 1fr 1fr;font-size:.88rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-eyebrow">▼  USER MANUAL  /  CLASSIFIED EDITION  /  v7.0  ▼</div>
+  <div class="hero-wolf">🐺</div>
+  <h1>THE FENRIR CODEX</h1>
+  <h2>راهنمای جامع کاربر · LifeOps Galactic v7</h2>
+  <p class="tagline">
+    این یک manual ساده نیست. این کتاب مقدس ورودی به دسته‌ی گرگ‌هاست — هر چیزی که باید بدانی تا فنریر را به <em>«مغز دوم»</em> خودت تبدیل کنی، در اینجاست.
+  </p>
+  <div class="promise">
+    «سایه‌ات ۲۴ ساعته کار می‌کند<br>تا تو در نور بایستی.» 🐺
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-val">∞</div><div class="hero-stat-lbl">Memory Capacity</div></div>
+    <div class="hero-stat"><div class="hero-stat-val">100%</div><div class="hero-stat-lbl">Your Data, Your Drive</div></div>
+    <div class="hero-stat"><div class="hero-stat-val">۹ نوع</div><div class="hero-stat-lbl">دوپامین سازنده</div></div>
+    <div class="hero-stat"><div class="hero-stat-val">۲۴/۷</div><div class="hero-stat-lbl">Always Watching</div></div>
+  </div>
+  <div class="hero-scroll">SCROLL TO ENTER ▼</div>
+</header>
+
+<div class="wrap">
+
+<!-- ═══════════════════════════════════════════════════════════════
+     TABLE OF CONTENTS
+     ═══════════════════════════════════════════════════════════════ -->
+<div class="toc">
+  <div class="toc-title">▼ فهرست کدکس</div>
+  <ol>
+    <li><a href="#about"><span><span class="ico">🐺</span>۱ · فنریر در یک نگاه — برای همه</span><span class="num">CH.01</span></a></li>
+    <li><a href="#secondbrain"><span><span class="ico">🧠</span>۲ · چرا «مغز دوم» می‌خواهی؟</span><span class="num">CH.02</span></a></li>
+    <li><a href="#security"><span><span class="ico">🛡️</span>۳ · امنیت و حریم خصوصی — مهم‌ترین اصل</span><span class="num">CH.03</span></a></li>
+    <li><a href="#start"><span><span class="ico">🚀</span>۴ · راه‌اندازی و اولین قدم‌ها</span><span class="num">CH.04</span></a></li>
+    <li><a href="#features"><span><span class="ico">⚡</span>۵ · کاتالوگ کامل ۲۵ امکان</span><span class="num">CH.05</span></a></li>
+    <li><a href="#advanced"><span><span class="ico">🔮</span>۶ · ترفندهای پیشرفته — برای متخصصین</span><span class="num">CH.06</span></a></li>
+    <li><a href="#scenarios"><span><span class="ico">🎬</span>۷ · ۷ سناریوی واقعی روزانه</span><span class="num">CH.07</span></a></li>
+    <li><a href="#faq"><span><span class="ico">❓</span>۸ · سوالات متداول و عیب‌یابی</span><span class="num">CH.08</span></a></li>
+    <li><a href="#join"><span><span class="ico">👑</span>۹ · واژه‌نامه و ورود به قبیله</span><span class="num">CH.09</span></a></li>
+  </ol>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 1 — ABOUT FENRIR
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="sect" id="about">
+  <div class="sect-num">01</div>
+  <div class="sect-tag">▼ MEET FENRIR</div>
+  <h1 class="sect-title">فنریر در یک نگاه</h1>
+  <p class="sect-sub">
+    قبل از هر چیز، بذار شفاف باشیم — فنریر یک اپلیکیشن «معمولی» نیست. این یک <em>همدم دیجیتال زنده</em> است که داخل تلگرامِ خودت زندگی می‌کند. این بخش برای همه است — از نوجوان تا بازنشسته، از فریلنسر تا مدیرعامل.
+  </p>
+
+  <h3>🐺 فنریر چیست؟</h3>
+
+  <p class="lead">
+    تصور کن یک «معاون شخصی» داری که هیچ‌وقت خسته نمی‌شود، هیچ‌وقت چیزی فراموش نمی‌کند، شبانه‌روز در دسترس است، تمام چیزهای ارزشمندت را برای همیشه نگه می‌دارد، و مهم‌تر از همه — <strong>فقط برای تو کار می‌کند</strong>.
+  </p>
+
+  <p>
+    این فنریر است. یک <em>«همدم دیجیتال»</em> که داخل تلگرامِ خودت زندگی می‌کند. برخلاف اپلیکیشن‌های یادداشت‌برداری یا تسک‌منیجرهای معمولی — که فقط ظرف‌های خالی‌اند منتظر اینکه تو محتوا را داخلشان بریزی — فنریر یک <span class="mag">موجود زنده</span> است که:
+  </p>
+
+  <div class="card card-emerald">
+    <ul style="margin-bottom:0">
+      <li><strong>به تو گوش می‌دهد</strong> — متن، صدا، عکس، فایل — هر چه بگویی می‌فهمد</li>
+      <li><strong>چیزهایت را به یاد می‌سپارد</strong> — تا ابد، روی گوگل اکانت <em>خودت</em></li>
+      <li><strong>الگوهای پنهان زندگی‌ات را کشف می‌کند</strong> — چیزهایی که خودت هم متوجه نشده‌ای</li>
+      <li><strong>وقتی نیاز داشته باشی، بدون درخواست به تو زنگ می‌زند</strong></li>
+      <li><strong>مثل یک منتور، گاهی به‌جای تأییدت، چالش‌ت می‌کند</strong></li>
+      <li><strong>و مهم‌تر از همه</strong> — «مغز دوم» تو می‌شود</li>
+    </ul>
+  </div>
+
+  <blockquote>
+    از حالا به بعد، نیازی نیست همه‌چیز را در ذهنت نگه داری. تمام آن «من بعداً باید این کار را بکنم»، «کاش این ایده را فراموش نکنم»، «قبض موبایلم را پرداخت کنم»، «شماره پرونده دکتر چه بود؟»، «اون لینک که دیشب فرستادم چی بود؟» — همه و همه را فنریر برایت نگه می‌دارد. <strong>برای همیشه.</strong>
+  </blockquote>
+
+  <h3>👥 فنریر برای چه کسی ساخته شده؟</h3>
+
+  <p>فنریر یک محصول همگانی نیست. برای آدم‌های خاص ساخته شده:</p>
+
+  <div class="three-col">
+    <div class="card card-cyan">
+      <h4>🧠 ذهن‌های شلوغ</h4>
+      <p>کسانی که ۱۰۰ ایده در روز دارند ولی هیچ‌کدوم اجرا نمی‌شود. دائم در حال فراموش کردن نکات مهم هستند.</p>
+    </div>
+    <div class="card card-emerald">
+      <h4>🚀 کارآفرینان</h4>
+      <p>فریلنسرها، مدیران، startupیست‌ها — کسانی که چندین پروژه را همزمان مدیریت می‌کنند و نیاز دارند چیزی <em>بیرون از مغزشان</em> همه چیز را track کند.</p>
+    </div>
+    <div class="card card-amber">
+      <h4>⚡ بیش‌فعال‌ها (ADHD)</h4>
+      <p>کسانی که سیستم‌های معمولی (Todoist، Notion) برایشان کار نمی‌کند چون خشک و خسته‌کننده است. فنریر با دوپامین سازنده و زبان نظامی-تاکتیکی، مغز ADHD را روشن می‌کند.</p>
+    </div>
+    <div class="card">
+      <h4>🎯 تحول‌خواهان</h4>
+      <p>کسانی که یک تحول واقعی می‌خواهند — نه فقط «نظم در تسک‌ها»، بلکه تحول در عادات، تمرکز، و رشد شخصی.</p>
+    </div>
+    <div class="card card-red">
+      <h4>😤 خسته از TikTok/Instagram</h4>
+      <p>کسانی که می‌خواهند آن دوپامین اعتیادآور را داشته باشند، اما به‌جای دزدی توجه — برای <em>رشد خودشان</em>.</p>
+    </div>
+    <div class="card card-gold">
+      <h4>👑 دنبال‌کنندگان نخبه</h4>
+      <p>کسانی که می‌فهمند ابزارهای رایگان همیشه قیمت پنهان دارند (داده‌های شما). آماده‌اند برای کیفیت و حریم خصوصی بپردازند.</p>
+    </div>
+  </div>
+
+  <h3>🚫 فنریر چه چیزی <em>نیست</em>؟</h3>
+
+  <p>برای شفافیت کامل:</p>
+
+  <div class="vs-table">
+    <div class="vs-h them">آنچه فنریر <strong>هست</strong></div>
+    <div class="vs-h them">آنچه فنریر <strong>نیست</strong></div>
+    <div class="vs-h us">چرا تفاوت دارد</div>
+
+    <div class="vs-row label">یک همدم دیجیتال زنده</div>
+    <div class="vs-row">یک یادداشت‌برداری ساده مثل Notion</div>
+    <div class="vs-row us">با تو حرف می‌زند، خودش زنگ می‌زند</div>
+
+    <div class="vs-row label">یک منتور هوشمند</div>
+    <div class="vs-row">یک تسک‌منیجر مثل Todoist</div>
+    <div class="vs-row us">گاهی چالش‌ت می‌کند، نه فقط ثبت می‌کند</div>
+
+    <div class="vs-row label">یک حافظه دائمی شخصی</div>
+    <div class="vs-row">یک چت‌بات مثل ChatGPT</div>
+    <div class="vs-row us">۶ ماه بعد هنوز یادش است</div>
+
+    <div class="vs-row label">یک اکوسیستم کامل</div>
+    <div class="vs-row">یک اپلیکیشن ساده</div>
+    <div class="vs-row us">۷ سیستم در هم تنیده، نه یک ابزار</div>
+
+    <div class="vs-row label">یک خدمت سفارشی و محدود</div>
+    <div class="vs-row">یک SaaS عمومی برای میلیون‌ها نفر</div>
+    <div class="vs-row us">کیفیت و امنیت، نه scale کور</div>
+  </div>
+
+  <h3>🔱 سه ضلع منحصربه‌فرد فنریر</h3>
+
+  <p>فنریر تنها سیستمی در جهان است که این <span class="gold">سه نیرو</span> را یکجا ترکیب می‌کند:</p>
+
+  <div class="three-col">
+    <div class="card card-cyan">
+      <h4>🤖 ۱ · هوش مصنوعی پیش‌فعال</h4>
+      <p>منتظر نمی‌ماند تا تو سوال کنی. <strong>خودش زنگ می‌زند</strong>، الگو پیدا می‌کند، چالش می‌دهد. این چیزی است که ChatGPT یا Gemini خام ندارند — شخصیت + حافظه + initiative.</p>
+    </div>
+    <div class="card card-emerald">
+      <h4>🧠 ۲ · مغز دوم دائمی</h4>
+      <p>تمام داده‌های ارزشمندت — کدها، شماره‌ها، ایده‌ها، خاطرات — <strong>برای همیشه</strong> ذخیره می‌شوند. روی گوگل درایو شخصی <em>خودت</em>، نه روی سرور غریبه.</p>
+    </div>
+    <div class="card card-amber">
+      <h4>🎮 ۳ · گیمیفیکیشن سازنده</h4>
+      <p>همان مکانیزم روان‌شناختی که Instagram را اعتیادآور می‌کند، اما این بار <strong>برای رشد خودت</strong>. سکه، XP، حلقه‌های پیشرفت، streak — همه برای موفقیت تو.</p>
+    </div>
+  </div>
+
+  <div class="callout callout-gold">
+    <div class="callout-ico">👑</div>
+    <div class="callout-body">
+      <div class="callout-title">فلسفه‌ی پشت فنریر</div>
+      <p>اپل گوشی نفروخت — «متفاوت فکر کردن» را فروخت. ما هم اپلیکیشن نمی‌فروشیم — ما <em>«بیداری و تسلط بر خود»</em> را می‌فروشیم. فنریر یک ابزار نیست؛ <strong>یک عضو از قبیله</strong> است.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 2 — WHY SECOND BRAIN
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="sect" id="secondbrain">
+  <div class="sect-num">02</div>
+  <div class="sect-tag">▼ THE SECOND BRAIN REVOLUTION</div>
+  <h1 class="sect-title">چرا «مغز دوم» می‌خواهی؟</h1>
+  <p class="sect-sub">
+    این بخش، انقلابی است که آرام در ذهن انسان مدرن در حال رخ دادن است — و فنریر سلاح اصلی این انقلاب است.
+  </p>
+
+  <h3>🧬 یک حقیقت تلخ علمی</h3>
+
+  <p class="lead">
+    مغز انسان طوری تکامل پیدا کرده که برای «فکر کردن، تصمیم‌گیری، خلق کردن، و حل مساله» قوی باشد — <strong>نه برای حفظ کردن جزئیات</strong>.
+  </p>
+
+  <p>
+    تا ۱۰۰۰ سال پیش، انسان فقط چند ده اطلاعات کوچک در طول روز نیاز داشت به‌خاطر بسپارد. <span class="mag">امروز؟</span>
+  </p>
+
+  <div class="card card-red">
+    <h4>📋 بار شناختی روزانه‌ی یک انسان مدرن</h4>
+    <ul>
+      <li>شماره پروازت، رزرو هتل، کد ورود کنفرانس</li>
+      <li>کد رهگیری ۵ بسته پستی</li>
+      <li>پسوردهای ۸۰ سایت مختلف</li>
+      <li>شماره پرونده پزشکی، بیمه، روانپزشک</li>
+      <li>تاریخ تولد ۲۰ نفر فامیل و دوست</li>
+      <li>۱۵ تسک کاری برای فردا</li>
+      <li>۳۰ ایده‌ای که در طول روز به ذهنت رسید</li>
+      <li>آدرس IP سرور، endpointها، API keyها</li>
+      <li>۱۰۰۰ لینک که گفتی «بعداً می‌خونم»</li>
+      <li>شماره تلفن‌ها، آدرس‌ها، قرارها</li>
+      <li>کلمه‌ای که دیروز یاد گرفتی و امروز فراموش کردی</li>
+      <li>نکته‌ای که در پادکست شنیدی</li>
+    </ul>
+  </div>
+
+  <p>
+    مغزت دارد روی <em>نرم‌افزار قدیمی ۱۰۰,۰۰۰ ساله</em>، یک <em>operating system مدرن</em> را اجرا می‌کند. نتیجه‌اش، یک فاجعه آرام است:
+  </p>
+
+  <div class="three-col">
+    <div class="card">
+      <h4>😵 فراموشی روزانه</h4>
+      <p>هر روز چندین چیز را فراموش می‌کنی. بعضاً حیاتی.</p>
+    </div>
+    <div class="card">
+      <h4>😰 اضطراب پنهان</h4>
+      <p>«نکنه چیزی یادم رفته باشه؟» — این فکر، خواب راحت را از تو می‌گیرد.</p>
+    </div>
+    <div class="card">
+      <h4>🥱 خستگی شناختی</h4>
+      <p>مغزت تمام انرژی‌اش را صرف <em>یادآوری</em> می‌کند، نه <em>خلق کردن</em>.</p>
+    </div>
+    <div class="card">
+      <h4>😶‍🌫️ ناتوانی در تمرکز</h4>
+      <p>هزار چیز در پس‌زمینه ذهنت می‌چرخند. تمرکز عمیق غیرممکن می‌شود.</p>
+    </div>
+    <div class="card">
+      <h4>😔 احساس «عقب موندن»</h4>
+      <p>دائم حس می‌کنی کارهایی هست که داری از قلم می‌اندازی.</p>
+    </div>
+    <div class="card">
+      <h4>💸 از دست رفتن فرصت‌ها</h4>
+      <p>ایده‌های میلیون‌دلاری در ذهنت می‌آیند و می‌روند، بدون اینکه ثبت شوند.</p>
+    </div>
+  </div>
+
+  <h3>💡 راه‌حل — یک «مغز دوم» دیجیتال</h3>
+
+  <p class="lead">
+    تصور کن یک <span class="gold">دفترچه جادویی</span> داری که:
+  </p>
+
+  <div class="card card-emerald">
+    <ul style="margin-bottom:0">
+      <li>هر چیزی که بگویی <em>(متن، صدا، عکس، فایل)</em> را برای همیشه نگه می‌دارد</li>
+      <li>هیچ‌وقت اطلاعاتش گم نمی‌شود</li>
+      <li>خودش طبقه‌بندی می‌کند — تو نیازی نیست ساختار بسازی</li>
+      <li>وقتی نیاز داری، در <em>کسری از ثانیه</em> پیدا می‌کند</li>
+      <li>از طریق تلگرام همیشه دم دستت است</li>
+      <li>روی گوگل اکانتِ <em>شخصی خودت</em> ذخیره می‌شود (نه روی سرور غریبه)</li>
+      <li>هیچ شرکت دیگری به آن دسترسی ندارد</li>
+      <li>۱۰ سال دیگه هم همان جا، در دسترس توست</li>
+    </ul>
+  </div>
+
+  <blockquote>
+    این فقط یک دفترچه نیست. این آن <span class="mag">«حافظه‌ای است که آرزو داشتی داشته باشی»</span>. این «مغز دوم» تو است — Second Brain.
+  </blockquote>
+
+  <h3>💎 ۷ چیز ارزشمندی که از فردا فراموش نخواهی کرد</h3>
+
+  <p>از لحظه‌ای که فنریر را روشن می‌کنی، این موارد دیگر گم نمی‌شوند:</p>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon">🏥</div>
+      <div class="feature-title">شماره پرونده پزشکی، روانپزشکی، بیمه</div>
+      <div class="feature-tag">VAULT</div>
+    </div>
+    <div class="feature-body">
+      <p>«شماره پرونده‌ام در بیمارستان شهدا: ۱۲۹۵۰»</p>
+      <p>یک پیام به فنریر، و این شماره برای همیشه در دسترس است. ۳ سال بعد که دکتر می‌پرسد، در ۲ ثانیه پیدا می‌کنی.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon">📦</div>
+      <div class="feature-title">کدهای رهگیری بسته، تاکسی، پرواز</div>
+      <div class="feature-tag">TRACKING</div>
+    </div>
+    <div class="feature-body">
+      <p>«کد رهگیری بسته از پست: ۵۱۸۹۶»</p>
+      <p>دیگه هیچ‌وقت دنبال SMSهای قدیمی نمی‌گردی. همه کدهای رهگیری در یک جا.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon">💰</div>
+      <div class="feature-title">اطلاعات بانکی و مالی</div>
+      <div class="feature-tag">FINANCE</div>
+    </div>
+    <div class="feature-body">
+      <p>«۷۰۰ میلیون تومان به خزانه واریز شد»</p>
+      <p>تمام تراکنش‌ها، خرج‌ها، و درآمدها — ثبت شده و قابل آنالیز. در پایان ماه، فنریر می‌گوید کجا پولت رفت.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon">💡</div>
+      <div class="feature-title">ایده‌های ناب نیمه‌شب</div>
+      <div class="feature-tag">GENESIS</div>
+    </div>
+    <div class="feature-body">
+      <p>«چی می‌شد اگه n8n خودش کد رو دیباگ می‌کرد؟»</p>
+      <p>ایده‌های میلیون‌دلاری معمولاً ۲ صبح، روی بالشت می‌آیند. فنریر بیدار است. ثبت می‌کند. ۶ ماه بعد، هنوز یادش است.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon">🔗</div>
+      <div class="feature-title">لینک‌ها و منابعی که گفتی «بعداً می‌خونم»</div>
+      <div class="feature-tag">READ-LATER</div>
+    </div>
+    <div class="feature-body">
+      <p>یه مقاله Medium درباره مدل‌های زبانی Reflective که در گروه دوستان دیدی.</p>
+      <p>به جای ذخیره در ۵۰ تب باز مرورگر، یک forward به فنریر. ثبت می‌شود. کنار ۱۰۰ لینک دیگه، با تگ مرتبط.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon">🤝</div>
+      <div class="feature-title">قول‌ها و قرارها</div>
+      <div class="feature-tag">COMMITMENTS</div>
+    </div>
+    <div class="feature-body">
+      <p>«امشب باید با آرش هماهنگ کنم بریم بیرون»</p>
+      <p>فنریر یادآور می‌سازد. ۵ عصر زنگ می‌زند. آرش فکر می‌کند تو خیلی منظم هستی. <em>راز را نگه داشتیم.</em></p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon">🔐</div>
+      <div class="feature-title">نکات حرفه‌ای کاری</div>
+      <div class="feature-tag">PRO-VAULT</div>
+    </div>
+    <div class="feature-body">
+      <p>«پسورد سرور Cloudflare: تو 1Password ذخیره کن»</p>
+      <p>configها، endpointها، نکات فنی — همه در یک گاوصندوق دیجیتال. سال بعد که سرور خراب می‌شود، در ۳۰ ثانیه راه حل پیدا می‌کنی.</p>
+    </div>
+  </div>
+
+  <div class="callout callout-emerald">
+    <div class="callout-ico">∞</div>
+    <div class="callout-body">
+      <div class="callout-title">قانون طلایی فنریر</div>
+      <p>تمام این‌ها در «گاوصندوق ذهن» تو می‌نشینند و <strong>سال‌ها بعد</strong>، یک جستجوی ساده تو را به آن می‌رساند. ذهنت آزاد می‌شود تا کارهای بزرگ‌تری انجام دهد — خلق کردن، تصمیم گرفتن، زندگی کردن.</p>
+    </div>
+  </div>
+
+  <h3>⚔️ تفاوت کلیدی با اپلیکیشن‌های یادداشت‌برداری</h3>
+
+  <p>از خودت بپرس: <em>«چرا الان Notion یا Google Keep را به‌قدر کافی استفاده نمی‌کنم؟»</em></p>
+
+  <p>جواب ساده است — این‌ها <strong>مرده</strong>اند:</p>
+
+  <div class="vs-table">
+    <div class="vs-h them">Notion / Google Keep</div>
+    <div class="vs-h them">رفتار کاربر</div>
+    <div class="vs-h us">فنریر</div>
+
+    <div class="vs-row">خشک و ساکت</div>
+    <div class="vs-row label">۲ هفته بعد رها می‌شود</div>
+    <div class="vs-row us">زنده، با تو حرف می‌زند</div>
+
+    <div class="vs-row">باید خودت ساختار بسازی</div>
+    <div class="vs-row label">انرژی کاربر تخلیه می‌شود</div>
+    <div class="vs-row us">خودش طبقه‌بندی می‌کند</div>
+
+    <div class="vs-row">باید خودت تگ بزنی</div>
+    <div class="vs-row label">کاربر تنبل می‌شود</div>
+    <div class="vs-row us">خودش تگ می‌زند با AI</div>
+
+    <div class="vs-row">هیچ‌وقت پاسخ نمی‌دهد</div>
+    <div class="vs-row label">حس تنهایی</div>
+    <div class="vs-row us">پاسخ تاکتیکی فارسی</div>
+
+    <div class="vs-row">هیچ‌وقت یادآوری نمی‌کند</div>
+    <div class="vs-row label">قرارها فراموش می‌شوند</div>
+    <div class="vs-row us">در زمان موعود زنگ می‌زند</div>
+
+    <div class="vs-row">هیچ احساس و حسی به ثبت ندارد</div>
+    <div class="vs-row label">عادت ساخته نمی‌شود</div>
+    <div class="vs-row us">هر ثبت = جشن کوچک (XP + صدا)</div>
+  </div>
+
+  <blockquote>
+    این تفاوت بین <em>«دفترچه»</em> و <em>«همدم»</em> است. تفاوت بین یک ابزار خاک‌خورده و یک عضو از تیم تو.
+  </blockquote>
+</section>
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 3 — SECURITY (MOST CRITICAL)
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="sect" id="security">
+  <div class="sect-num">03</div>
+  <div class="sect-tag">▼ SECURITY · ZERO COMPROMISE</div>
+  <h1 class="sect-title">امنیت و حریم خصوصی</h1>
+  <p class="sect-sub">
+    این مهم‌ترین فصل کل این کدکس است. قبل از هر چیز دیگری، باید بدانی <strong>داده‌هایت کجا می‌روند، چه کسی به آن‌ها دسترسی دارد، و چرا فنریر متفاوت است</strong>. این تفاوت، یک تفاوت کوچک نیست — یک تفاوت بنیادی است که فنریر را از Notion، Todoist، Apple Notes، و حتی ChatGPT جدا می‌کند.
+  </p>
+
+  <h3>👑 قانون طلایی: داده‌های تو، روی گوگل شخصی <em>خودت</em></h3>
+
+  <p class="lead">
+    این مهم‌ترین تفاوت فنریر با همه اپلیکیشن‌های دیگر است. <strong>تمام داده‌هایت — هر آنچه از طریق فنریر ثبت می‌کنی — روی Google Sheets شخصی خودت ذخیره می‌شود.</strong> در گوگل درایو خودت. در حساب گوگل خودت.
+  </p>
+
+  <div class="callout callout-gold">
+    <div class="callout-ico">🔐</div>
+    <div class="callout-body">
+      <div class="callout-title">سه ستون امنیت فنریر</div>
+      <p style="margin-bottom:.4rem"><span class="gold">۱.</span> فنریر هیچ سرور مرکزی برای ذخیره داده ندارد.</p>
+      <p style="margin-bottom:.4rem"><span class="gold">۲.</span> هیچ شرکت ثالثی به داده‌های تو دسترسی ندارد.</p>
+      <p style="margin-bottom:0"><span class="gold">۳.</span> حتی ما (سازندگان فنریر) <em>نمی‌توانیم</em> پیامت را بخوانیم — چون روی Drive توست.</p>
+    </div>
+  </div>
+
+  <h3>🏰 معماری امنیتی — به زبان ساده</h3>
+
+  <p>تصور کن یک <span class="gold">«گاوصندوق دیجیتال»</span> داری که فقط کلیدش دست خودته:</p>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <div class="step-title">تو پیام می‌فرستی</div>
+      <p>یک پیام به ربات تلگرامت می‌فرستی — متن، عکس، ویس، فایل، هرچه.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <div class="step-title">ربات آن را برای پردازش می‌برد</div>
+      <p>مثل صندوقدار بانک — فقط یک واسطه است. هیچ کپی نگه نمی‌دارد.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <div class="step-title">سیستم آن را در «گاوصندوق» می‌نشاند</div>
+      <p>Google Sheets <em>تو</em>. در Google Drive <em>تو</em>. در حساب گوگل <em>تو</em>.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <div class="step-title">کلید گاوصندوق — فقط دست توست</div>
+      <p>گوگل اکانت توست. حتی فنریر هم بعد از قطع authorization، دسترسی‌اش از بین می‌رود.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-body">
+      <div class="step-title">هیچ راه دیگری وجود ندارد</div>
+      <p>هر کس بخواهد به داده‌هایت دسترسی پیدا کند، باید <strong>گوگل اکانت تو را هک کند</strong> — نه فنریر را.</p>
+    </div>
+  </div>
+
+  <h3>✨ این چه معنایی برای تو دارد؟</h3>
+
+  <div class="card card-emerald">
+    <ul style="margin-bottom:0">
+      <li>✓ اگر فنریر فردا تعطیل شد، داده‌هایت <strong>در امان است</strong> (هنوز در Google Drive توست)</li>
+      <li>✓ اگر اینترنت ایران فیلتر شد، گوگل دیتای تو را نگه می‌دارد (دسترسی از طریق VPN امکان‌پذیر)</li>
+      <li>✓ هر هکری فنریر را هک کند، چیزی پیدا نمی‌کند</li>
+      <li>✓ هیچ کارمندی نمی‌تواند پیام‌هایت را بخواند</li>
+      <li>✓ هیچ تبلیغ‌دهنده‌ای نمی‌تواند داده‌هایت را بخرد</li>
+      <li>✓ هیچ AI ای از داده‌هایت آموزش نمی‌بیند</li>
+      <li>✓ ۱۰ سال دیگه، داده‌ها هنوز در دسترس <em>توست</em></li>
+    </ul>
+  </div>
+
+  <h3>⚔️ تفاوت با Notion، Todoist، ChatGPT و دیگران</h3>
+
+  <p>این یک <span class="mag">واقعیت سرکوب‌شده</span> است که ۹۹٪ کاربران از آن بی‌خبرند. وقت آن رسیده که بدانی:</p>
+
+  <div class="card card-red">
+    <h4>🚨 وقتی در نرم‌افزارهای دیگر می‌نویسی، چه می‌شود؟</h4>
+    <ul>
+      <li>وقتی در <strong>Notion</strong> می‌نویسی → داده روی سرور Notion است (در آمریکا)</li>
+      <li>وقتی در <strong>Todoist</strong> می‌نویسی → داده روی سرور Todoist است (Doist Inc.)</li>
+      <li>وقتی در <strong>Apple Notes</strong> می‌نویسی → روی iCloud اپل (سرورهای Apple)</li>
+      <li>وقتی در <strong>ChatGPT</strong> می‌نویسی → روی سرور OpenAI (و برای training استفاده می‌شود)</li>
+      <li>وقتی در <strong>Telegram chat معمولی</strong> می‌نویسی → روی سرور تلگرام (بسته به منطقه)</li>
+    </ul>
+  </div>
+
+  <p>این یعنی این شرکت‌ها:</p>
+
+  <div class="card card-red">
+    <ul style="margin-bottom:0">
+      <li>✗ <strong>می‌توانند داده‌هایت را بخوانند</strong> (در قراردادشان نوشته شده)</li>
+      <li>✗ می‌توانند برای آموزش AI خود استفاده کنند</li>
+      <li>✗ می‌توانند اگر تعطیل شدند، داده‌هایت <em>نابود شود</em></li>
+      <li>✗ می‌توانند به دولت‌ها بدهند بدون اطلاع تو</li>
+      <li>✗ می‌توانند تبلیغات هدفمند بر اساس داده‌هایت بفروشند</li>
+      <li>✗ اگر اکانتت بسته شد، همه چیز در یک لحظه از دست می‌رود</li>
+    </ul>
+  </div>
+
+  <blockquote>
+    در فنریر، <strong>هیچ‌کدام از این‌ها امکان‌پذیر نیست</strong>. چون داده روی حساب گوگل توست. این یک تفاوت کوچک نیست — این یک <em>پارادایم شیفت</em> در روش طراحی نرم‌افزار است. فنریر <span class="gold">data-sovereign</span> است.
+  </blockquote>
+
+  <h3>🛡️ امنیت چندلایه — ۵ لایه دفاعی</h3>
+
+  <p>فنریر چندین لایه امنیتی دارد، مانند یک قلعه نظامی:</p>
+
+  <div class="card card-cyan">
+    <h4>🔒 لایه ۱ — Google Account Security</h4>
+    <p>داده‌ها در Google Drive توست. گوگل از <strong>قوی‌ترین پروتکل‌های امنیتی جهان</strong> استفاده می‌کند:</p>
+    <ul>
+      <li>2FA (احراز هویت دو مرحله‌ای)</li>
+      <li>biometric authentication (اثر انگشت، چهره)</li>
+      <li>device verification (تایید دستگاه ناآشنا)</li>
+      <li>Advanced Protection Program</li>
+      <li>Encryption at rest + in transit</li>
+    </ul>
+    <p>هیچ شرکت کوچک یا متوسطی نمی‌تواند این سطح امنیت را ارائه دهد.</p>
+  </div>
+
+  <div class="card card-emerald">
+    <h4>📡 لایه ۲ — Telegram End-to-End Encryption</h4>
+    <p>پیام‌هایی که از طریق تلگرام می‌فرستی، در ترانزیت <em>encrypted</em> هستند. هیچ‌کس بین تو و ربات نمی‌تواند پیام را در حین انتقال بخواند. حتی ISP هم نمی‌فهمه چی می‌فرستی.</p>
+  </div>
+
+  <div class="card card-amber">
+    <h4>🤖 لایه ۳ — ربات سفارشی منحصربه‌فرد</h4>
+    <p>این یکی از مهم‌ترین تفاوت‌هاست. <strong>هر کاربر فنریر، یک ربات اختصاصی دارد</strong> (با token مخصوص خودش). این یعنی:</p>
+    <ul>
+      <li>حتی کاربران دیگر فنریر به ربات تو دسترسی ندارند</li>
+      <li>اگر یک ربات هک شد، فقط همان کاربر تحت تاثیر است</li>
+      <li>هیچ shared infrastructure مرکزی برای حمله نیست</li>
+      <li>این رویکرد در دنیای SaaS نادر است — معمولاً همه با یک bot کار می‌کنند</li>
+    </ul>
+  </div>
+
+  <div class="card card-violet" style="border-color:rgba(155,89,255,.45)">
+    <h4>⚙️ لایه ۴ — Workflow Permissions</h4>
+    <p>سیستم پردازش (n8n) فقط با <em>authorization صریح</em> به Sheets تو دسترسی دارد. در هر لحظه می‌توانی آن را قطع کنی:</p>
+    <ol>
+      <li>برو به Google Account Settings</li>
+      <li>Security → Third-party apps with account access</li>
+      <li>Fenrir را پیدا کن، Revoke بزن</li>
+      <li>تمام. دسترسی فنریر در لحظه قطع می‌شود.</li>
+    </ol>
+  </div>
+
+  <div class="card card-cyan">
+    <h4>💾 لایه ۵ — Local Storage Backup</h4>
+    <p>تیک‌ها، آواتار، و وضعیت ماموریت‌ها، روی <em>مرورگر تو</em> هم backup می‌شوند. حتی اگر:</p>
+    <ul>
+      <li>اینترنت قطع شد → اپ کار می‌کند</li>
+      <li>سرور آفلاین شد → داده‌ها در گوشی توست</li>
+      <li>هرگز هیچ‌چیز از دست نمی‌رود</li>
+    </ul>
+  </div>
+
+  <h3>👁️ سفارش اختصاصی — چرا فنریر برای همه نیست</h3>
+
+  <div class="card card-gold">
+    <p class="lead" style="margin-bottom:1.2rem">
+      فنریر یک محصول SaaS عمومی نیست که هر کسی بتواند با یک کلیک ثبت‌نام کند. به <strong>دلایل امنیتی و کیفیتی</strong>، فنریر فقط به‌صورت سفارشی به افراد انتخاب‌شده ارائه می‌شود.
+    </p>
+    <p>این انتخاب، یک تصمیم استراتژیک است — نه یک محدودیت فنی.</p>
+  </div>
+
+  <h4>دلایل این رویکرد:</h4>
+
+  <div class="three-col">
+    <div class="card">
+      <h4>🤖 ربات شخصی</h4>
+      <p>هر کاربر باید یک ربات تلگرام <em>شخصی</em> داشته باشد. این یعنی setup دستی برای هر نفر.</p>
+    </div>
+    <div class="card">
+      <h4>☁️ گوگل اکانت اختصاصی</h4>
+      <p>یا اتصال به گوگل اکانت موجود کاربر. این process نمی‌تواند automated باشد.</p>
+    </div>
+    <div class="card">
+      <h4>⏱️ ۱ روز کار دستی</h4>
+      <p>ساخت اکانت سفارشی، تنظیم ۷ ورک‌فلو، تست کامل — حدود ۲۴ ساعت کار تخصصی.</p>
+    </div>
+  </div>
+
+  <h4>چه معنایی برای تو دارد؟</h4>
+
+  <div class="callout callout-emerald">
+    <div class="callout-ico">👑</div>
+    <div class="callout-body">
+      <div class="callout-title">مزایای رویکرد اختصاصی</div>
+      <ul style="margin-bottom:0">
+        <li>✓ هر اکانت فنریر، <strong>منحصربه‌فرد</strong> است</li>
+        <li>✓ هیچ کاربر دیگری به ربات یا داده تو دسترسی ندارد</li>
+        <li>✓ تو در یک <em>«قبیله نخبه»</em> (The Pack) قرار می‌گیری</li>
+        <li>✓ کیفیت پشتیبانی <em>به‌مراتب بالاتر</em> از SaaS عمومی است</li>
+        <li>✓ هر مساله‌ای داشته باشی، با تیم در ارتباط مستقیم هستی</li>
+        <li>✓ feature requests شخصی پذیرفته می‌شود</li>
+      </ul>
+    </div>
+  </div>
+
+  <blockquote>
+    این یک «اپلیکیشن همگانی» نیست. این یک <span class="gold">«کلوپ اختصاصی»</span> است. مثل کلوپ ماشین فِراری — نه به خاطر اینکه گران است، بلکه چون <em>اعضای آن انتخاب شده‌اند</em>.
+  </blockquote>
+
+  <h3>📋 شفافیت کامل — چه چیزی ذخیره می‌شود، چه چیزی نه؟</h3>
+
+  <div class="two-col">
+    <div class="card card-emerald">
+      <h4>✓ ذخیره می‌شود (روی Google Sheets تو)</h4>
+      <ul>
+        <li>متن پیام‌ها (آنچه خودت می‌فرستی)</li>
+        <li>نوع آیتم (task / idea / finance / ...)</li>
+        <li>اولویت و تگ‌های هوشمند</li>
+        <li>زمان دقیق ثبت</li>
+        <li>عکس‌های کوچک (به‌صورت base64)</li>
+        <li>متادیتای فایل‌ها (نام، حجم، نوع)</li>
+        <li>یادآورها و وضعیت آن‌ها</li>
+        <li>XP، Streak، Coins (آینده)</li>
+      </ul>
+    </div>
+    <div class="card card-red">
+      <h4>✗ ذخیره نمی‌شود</h4>
+      <ul>
+        <li>پسوردها (فنریر <em>هرگز</em> پسورد نمی‌خواهد)</li>
+        <li>اطلاعات کارت بانکی</li>
+        <li>موقعیت مکانی (مگر اینکه خودت بنویسی)</li>
+        <li>مخاطبین گوشی</li>
+        <li>متن پیام‌های تلگرامت با دیگران</li>
+        <li>تاریخچه مرورگرت</li>
+        <li>اطلاعات سلامت بدون اجازه صریح</li>
+        <li>هیچ data از device تو بدون اطلاعت</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>🌐 یک نکته درباره Gemini (Google AI)</h3>
+
+  <div class="callout callout-cyan">
+    <div class="callout-ico">🤖</div>
+    <div class="callout-body">
+      <div class="callout-title">پیام‌ها به AI می‌روند؟</div>
+      <p>برای classification (تشخیص نوع پیام)، متن پیام به Gemini ارسال می‌شود. این طبیعت کار AI است — بدون این، فنریر نمی‌تواند بفهمد چه نوشته‌ای. اما:</p>
+      <ul style="margin-bottom:0">
+        <li><strong>Google Cloud قول داده</strong> داده‌های API برای training مدل استفاده نشود</li>
+        <li>هیچ نسخه‌ای روی سرور Google نگه نمی‌شود (طبق قرارداد paid tier)</li>
+        <li>پردازش در عرض ۲-۳ ثانیه انجام و نتیجه به Sheets تو برمی‌گردد</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout callout-amber">
+    <div class="callout-ico">⚖️</div>
+    <div class="callout-body">
+      <div class="callout-title">trade-off که باید بدانی</div>
+      <p>اگر می‌خواهی <em>حتی</em> Google هم متن پیامت را نبیند، باید سراغ راه‌حل‌های Local AI بروی (مثل Ollama روی سرور خودت). در v9 فنریر، این گزینه برای کاربران Übermensch فعال می‌شود. در حال حاضر، مزایای Gemini (سرعت + کیفیت) از این هزینه بسیار بالاتر است.</p>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 4 — SETUP & FIRST STEPS
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="sect" id="start">
+  <div class="sect-num">04</div>
+  <div class="sect-tag">▼ FIRST CONTACT</div>
+  <h1 class="sect-title">راه‌اندازی و اولین قدم‌ها</h1>
+  <p class="sect-sub">
+    از لحظه‌ای که دعوت‌نامه‌ات می‌رسد، تا اولین تجربه‌ی واقعی از فنریر — کل این فرآیند کمتر از ۵ دقیقه طول می‌کشد. این بخش گام به گام، با تمام جزئیات.
+  </p>
+
+  <h3>⚡ خلاصه ۳۰ ثانیه‌ای</h3>
+
+  <div class="card card-gold">
+    <ol style="margin-bottom:0">
+      <li>ربات اختصاصی تلگرامت را باز کن</li>
+      <li>دستور <code>/start</code> را بزن</li>
+      <li>روی دکمه <strong>«⚡ ENTER WAR ROOM»</strong> ضربه بزن</li>
+      <li>مینی‌اپ کیهانی باز می‌شود</li>
+      <li>یک پیام تستی بنویس و دکمه <em>FIRE</em> را بزن</li>
+    </ol>
+    <p style="margin-top:1rem;margin-bottom:0">تمام. حالا یک <strong>«همدم دیجیتال»</strong> داری.</p>
+  </div>
+
+  <h3>🚀 گام به گام — راه‌اندازی اولیه</h3>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <div class="step-title">دریافت ربات اختصاصی</div>
+      <p>پس از تایید درخواست عضویت، تیم فنریر برای تو:</p>
+      <ul>
+        <li>یک ربات تلگرامی مخصوص می‌سازد (نام: مثلا <code>@YourName_FenrirBot</code>)</li>
+        <li>یک گوگل اکانت اختصاصی، یا اتصال به گوگل اکانت موجودت</li>
+        <li>یک Google Sheet شخصی برای داده‌هایت</li>
+        <li>تنظیم همه ۷ workflow روی اکانت <em>خودت</em></li>
+      </ul>
+      <p>این کار <strong>۲۴ تا ۴۸ ساعت</strong> طول می‌کشد. در این مدت، یک ایمیل دعوت با تمام لینک‌ها دریافت می‌کنی.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <div class="step-title">اولین ورود</div>
+      <ul>
+        <li>روی لینک ربات کلیک کن — تلگرام آن را باز می‌کند</li>
+        <li>دکمه <strong>«Start»</strong> در پایین صفحه را بزن</li>
+        <li>یک پیام خوش‌آمد می‌آید با یک دکمه بزرگ:</li>
+      </ul>
+      <div class="card card-cyan" style="text-align:center;padding:2rem;margin:1rem 0">
+        <div style="font-family:'Orbitron',monospace;font-size:1.3rem;font-weight:900;color:var(--g);text-shadow:0 0 20px rgba(0,255,136,.5)">⚡ ENTER WAR ROOM ⚡</div>
+      </div>
+      <p>روی آن بزن — مینی‌اپ شروع به لود شدن می‌کند.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <div class="step-title">انیمیشن ورود — Wormhole کیهانی</div>
+      <p>اولین چیزی که می‌بینی، یک <strong>انیمیشن کیهانی</strong> است:</p>
+      <ul>
+        <li>🌌 ستاره‌ها در حال حرکت</li>
+        <li>☄️ شهاب‌ها رد می‌شوند</li>
+        <li>🌀 یک wormhole (سیاهچاله مارپیچ) در مرکز</li>
+        <li>🐺 لوگوی گرگ سفید ظاهر می‌شود</li>
+      </ul>
+      <p>روی لوگو ضربه بزن — وارد <span class="mag">«اتاق جنگ» (War Room)</span> می‌شوی.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <div class="step-title">اولین پیام — یک تست ساده</div>
+      <p>پایین صفحه یک نوار سیاه می‌بینی:</p>
+      <div class="card" style="background:rgba(0,0,8,.8);padding:1rem 1.4rem;margin:1rem 0;text-align:center;font-family:'Share Tech Mono',monospace;font-size:1rem;color:var(--vi)">
+        [ + ]&nbsp;&nbsp;[ هرچی تو ذهنته بنویس... ]&nbsp;&nbsp;[ ▶ ]
+      </div>
+      <p>روی نوار وسط تپ کن، و یک چیز ساده بنویس:</p>
+      <blockquote style="margin:.8rem 0">تست — اولین پیام من به فنریر</blockquote>
+      <p>سپس دکمه <strong>▶ (FIRE)</strong> را بزن. طی ۲-۳ ثانیه:</p>
+      <ul>
+        <li>📳 گوشی‌ات لرزش می‌کند (Haptic feedback)</li>
+        <li>🔔 صدای جمع شدن سکه پخش می‌شود</li>
+        <li>🟢 یک نقطه سبز روی رادار ظاهر می‌شود</li>
+        <li>🐺 در پایین صفحه، یک پیام از فنریر می‌آید:</li>
+      </ul>
+      <div class="card card-emerald" style="margin:1rem 0">
+        <p style="margin-bottom:0">«ثبت شد فرمانده 🐺<br>نوع: NOTE — اولویت: NORMAL»</p>
+      </div>
+      <p><span class="gold">تبریک!</span> اولین آیتم در «مغز دوم» تو ثبت شد.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-body">
+      <div class="step-title">کشف رادار</div>
+      <p>بالای صفحه، یک <strong>رادار circular</strong> می‌بینی. این «اتاق جنگ» توست. هر نقطه‌ای روی رادار، یک ماموریت یا آیتم فعال است.</p>
+      <ul>
+        <li><span style="color:var(--re);font-weight:700">●</span> نقاط قرمز — اولویت بالا</li>
+        <li><span style="color:var(--am);font-weight:700">●</span> نقاط زرد — اولویت معمولی</li>
+        <li><span style="color:var(--g);font-weight:700">●</span> نقاط سبز — اولویت کم</li>
+        <li>نقاط نزدیک‌تر به مرکز — فوری‌تر</li>
+      </ul>
+      <p>بالای رادار، سه شاخص:</p>
+      <ul>
+        <li><strong>URGENT</strong> — تعداد ماموریت‌های فوری</li>
+        <li><strong>DONE</strong> — تعداد تکمیل‌شده‌های امروز</li>
+        <li><strong>REMINDER</strong> — تعداد یادآور فعال</li>
+      </ul>
+      <p>روی هر نقطه تپ کن تا متن کامل آن را ببینی.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">6</div>
+    <div class="step-body">
+      <div class="step-title">ماموریت‌ها (Missions Tab)</div>
+      <p>از بالای صفحه، تب <strong>«MISSIONS»</strong> را انتخاب کن. اینجا لیست کامل آیتم‌هایت را می‌بینی، با فیلترها:</p>
+      <p><code>ALL · TASK · IDEA · REMINDER · FINANCE · HEALTH · SHOPPING · HIGH</code></p>
+      <p>روی <em>checkbox</em> کنار هر آیتم تپ کن تا «انجام شده» علامت بزنی. <span class="mag">انیمیشن burst + صدای جشن + ۵۰+ XP</span> می‌گیری. ✅</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">7</div>
+    <div class="step-body">
+      <div class="step-title">چت با فنریر</div>
+      <p>روی دکمه <strong>+</strong> در نوار پایین تپ کن. منویی باز می‌شود با چهار گزینه:</p>
+      <div class="two-col">
+        <div class="card" style="text-align:center;padding:1rem">📷 عکس</div>
+        <div class="card" style="text-align:center;padding:1rem">🎙 ویس</div>
+        <div class="card" style="text-align:center;padding:1rem">📄 فایل</div>
+        <div class="card card-emerald" style="text-align:center;padding:1rem">🐺 فنریر (چت)</div>
+      </div>
+      <p>روی <strong>🐺</strong> تپ کن. یک پنل چت تمام‌صفحه باز می‌شود. اینجا می‌توانی مستقیماً با فنریر صحبت کنی:</p>
+      <blockquote>«فنریر، یه روتین صبحگاهی برام پیشنهاد بده»</blockquote>
+      <p>و در عرض ۸-۱۲ ثانیه، یک پاسخ <em>کامل، تاکتیکی، و انگیزشی</em> از فنریر دریافت می‌کنی.</p>
+    </div>
+  </div>
+
+  <h3>🎯 ۵ کاری که اولین روز انجام بده</h3>
+
+  <p>برای اینکه فنریر را به یک <strong>عادت</strong> تبدیل کنی، در روز اول این کارها را انجام بده:</p>
+
+  <div class="three-col">
+    <div class="card card-emerald">
+      <h4>۱ — هر چیزی ثبت کن</h4>
+      <p>حتی پیش‌پاافتاده — «امروز خرید نون کنم». هدف: ۱۰ آیتم در روز اول.</p>
+    </div>
+    <div class="card card-cyan">
+      <h4>۲ — یک یادآور بساز</h4>
+      <p>تب Reminders → ثبت با تاریخ و ساعت. تست کن که در زمان موعود، تلگرام پیام بفرستد.</p>
+    </div>
+    <div class="card card-amber">
+      <h4>۳ — یک عکس آپلود کن</h4>
+      <p>روی + → 📷 → یک عکس از gallery. (می‌تونه فاکتور یا screenshot باشه)</p>
+    </div>
+    <div class="card">
+      <h4>۴ — یک ویس بفرست</h4>
+      <p>روی + → 🎙 → ضبط ۵ ثانیه‌ای. ببین چه سریع classify می‌شود.</p>
+    </div>
+    <div class="card card-violet" style="border-color:rgba(155,89,255,.45)">
+      <h4>۵ — با فنریر چت کن</h4>
+      <p>روی + → 🐺 → یک سوال یا چالش بپرس. بذار شخصیتش رو بشناسی.</p>
+    </div>
+  </div>
+
+  <div class="callout callout-gold">
+    <div class="callout-ico">⚡</div>
+    <div class="callout-body">
+      <div class="callout-title">قانون عادت‌سازی</div>
+      <p>پس از این پنج کار، فنریر <em>«شخصیت‌ت»</em> را فهمیده و از فردا پاسخ‌هایش هوشمندتر می‌شوند. ۳۰ روز اول، روزی حداقل ۱۰ آیتم ثبت کن — این آستانه‌ی تبدیل فنریر از یک «اپلیکیشن» به یک <strong>عضو از زندگی‌ات</strong> است.</p>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 5 — COMPLETE FEATURE CATALOG
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="sect" id="features">
+  <div class="sect-num">05</div>
+  <div class="sect-tag">▼ FULL ARSENAL · 25 FEATURES</div>
+  <h1 class="sect-title">کاتالوگ کامل امکانات</h1>
+  <p class="sect-sub">
+    هر امکان فنریر یک «ابزار» در زرادخانه توست. این بخش هر یک را با مثال واقعی، use case، و نکته حرفه‌ای توضیح می‌دهد. <strong>۲۵ ویژگی در ۵ دسته.</strong>
+  </p>
+
+  <!-- ═══ CATEGORY 1: CAPTURE ═══ -->
+  <h3>📥 ضبط و ثبت اطلاعات (Capture)</h3>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon" style="color:var(--g)">✍️</div>
+      <div class="feature-title">۱ — ضبط متنی (Text Capture)</div>
+      <div class="feature-tag">F-01</div>
+    </div>
+    <div class="feature-body">
+      <p><strong>چطور کار می‌کند:</strong> در نوار پایین مینی‌اپ یا داخل خود تلگرام، هر متنی می‌نویسی. ربات/سیستم به‌صورت خودکار آن را classify می‌کند.</p>
+      <p><strong>کاربرد روزانه:</strong></p>
+      <ul>
+        <li>«فردا ساعت ۳ جلسه با علی» → <em>event</em></li>
+        <li>«کاش می‌تونستم یه اپ مشابه بسازم» → <em>idea</em></li>
+        <li>«شارژ مودم ۲۰۰ هزار تومن» → <em>finance</em></li>
+        <li>«درد گردن داره بیشتر می‌شه» → <em>health</em></li>
+        <li>«شیر و نون و تخم‌مرغ بخرم» → <em>shopping</em></li>
+      </ul>
+      <p><strong>مثال زنده:</strong> می‌نویسی «فردا حتما باید با دکتر تماس بگیرم». فنریر می‌گوید:</p>
+      <blockquote style="margin:.8rem 0">
+        نوع: TASK / REMINDER<br>
+        اولویت: HIGH<br>
+        تگ‌ها: [سلامت، تماس، دکتر]<br>
+        پاسخ: «ثبت شد فرمانده. می‌خوای یه یادآور برای فردا صبح ست کنم؟ 🐺»
+      </blockquote>
+      <p><strong>نکته حرفه‌ای:</strong> در پیامت اگر «حتما/فوری/امروز» بنویسی → اولویت HIGH. «شاید/یه روزی» → اولویت LOW.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon" style="color:var(--cy)">🎙️</div>
+      <div class="feature-title">۲ — ضبط صوتی (Voice Capture)</div>
+      <div class="feature-tag">F-02</div>
+    </div>
+    <div class="feature-body">
+      <p><strong>چطور کار می‌کند:</strong> در مینی‌اپ روی + → 🎙 ضربه بزن. ضبط شروع می‌شود. دوباره ضربه بزن، توقف. سیستم آن را به base64 تبدیل کرده، ذخیره می‌کند، و در صورت فعال بودن Whisper، transcript فارسی هم استخراج می‌شود.</p>
+      <p><strong>کاربرد روزانه:</strong></p>
+      <ul>
+        <li>پشت فرمان رانندگی، یه ایده به ذهنت می‌آید</li>
+        <li>تو پارک، روی نیمکت نشسته‌ای و فکر می‌کنی</li>
+        <li>حین قدم زدن، چیزی یادت می‌آید</li>
+      </ul>
+      <p><strong>مثال زنده:</strong> ویس ضبط می‌کنی: «یه ایده دارم — می‌تونیم یه نسخه فنریر برای تیم‌های کاری بسازیم». فنریر می‌گوید: «ایده ثبت شد. نوع: IDEA. تگ‌ها: [محصول، B2B، توسعه]. می‌خوای روش بحث کنیم؟»</p>
+      <p><strong>نکته حرفه‌ای:</strong> ویس‌های زیر ۳۰ ثانیه بهتر کار می‌کنند. این بزرگ‌ترین مزیت برای کاربران ADHD است — وقتی mind faster than fingers است.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon" style="color:var(--vi)">📷</div>
+      <div class="feature-title">۳ — آپلود عکس (Image Capture)</div>
+      <div class="feature-tag">F-03</div>
+    </div>
+    <div class="feature-body">
+      <p><strong>چطور کار می‌کند:</strong> روی + → 📷 → gallery یا camera. عکس انتخابی به‌طور خودکار در مرورگر «فشرده» می‌شود (resize تا 800px، JPEG quality 0.7) تا زیر ۳۰KB بشود.</p>
+      <p><strong>کاربرد روزانه:</strong></p>
+      <ul>
+        <li>عکس از فاکتور (برای ثبت هزینه)</li>
+        <li>screenshot از یه پیام مهم</li>
+        <li>عکس از یه idea که روی کاغذ کشیدی</li>
+        <li>عکس از QR code که می‌خوای ذخیره کنی</li>
+        <li>عکس از کارت ویزیت یه شخص</li>
+      </ul>
+      <p><strong>مثال زنده:</strong> عکس از فاکتور رستوران می‌گیری → آپلود. فنریر می‌گوید: «هزینه ثبت شد. می‌خوای مبلغ رو هم وارد کنی؟»</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon" style="color:var(--am)">📄</div>
+      <div class="feature-title">۴ — آپلود فایل (File Capture)</div>
+      <div class="feature-tag">F-04</div>
+    </div>
+    <div class="feature-body">
+      <p><strong>چطور کار می‌کند:</strong> روی + → 📄 → file picker. فرمت‌های پشتیبانی شده: PDF, DOCX, XLS, TXT, MD.</p>
+      <p><strong>کاربرد روزانه:</strong></p>
+      <ul>
+        <li>یه PDF که تو ایمیل دریافت کردی</li>
+        <li>یه فایل اکسل از حساب‌داری</li>
+        <li>یه قرارداد که می‌خوای بعداً مرور کنی</li>
+        <li>یه document از وکیلت</li>
+      </ul>
+      <p><strong>مثال زنده:</strong> فایل قرارداد همکاری را آپلود می‌کنی. فنریر: «فایل ذخیره شد. می‌خوای محتواش رو خلاصه‌سازی کنم؟»</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon" style="color:var(--mag)">💬</div>
+      <div class="feature-title">۵ — ضبط از تلگرام (Telegram Capture)</div>
+      <div class="feature-tag">F-05</div>
+    </div>
+    <div class="feature-body">
+      <p><strong>چطور کار می‌کند:</strong> حتی بدون باز کردن مینی‌اپ، می‌توانی مستقیماً به ربات پیام (متن، عکس، ویس، sticker) بفرستی. فنریر همه را به همان pipeline می‌برد.</p>
+      <p><strong>کاربرد روزانه:</strong></p>
+      <ul>
+        <li>سریع‌ترین راه ثبت — یک پیام تلگرام</li>
+        <li>Forward یه پیام از یه چت دیگه</li>
+        <li>Forward یه عکس از یه گروه</li>
+      </ul>
+      <p><strong>نکته حرفه‌ای:</strong> روی iOS، ربات را به <em>Quick Reply</em> اضافه کن. روی Android، widget ربات را روی home screen قرار بده.</p>
+    </div>
+  </div>
+
+  <!-- ═══ CATEGORY 2: VISUALIZATION ═══ -->
+  <h3>📡 رادار و نمایش (Visualization)</h3>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon" style="color:var(--g)">🎯</div>
+      <div class="feature-title">۶ — اتاق جنگ (War Room Radar)</div>
+      <div class="feature-tag">F-06</div>
+    </div>
+    <div class="feature-body">
+      <p><strong>چیست:</strong> صفحه اصلی مینی‌اپ. یک رادار circular با ۱۰ ماموریت اخیر که به‌صورت blip حول مرکز می‌چرخند.</p>
+      <p><strong>چی نمایش می‌دهد:</strong></p>
+      <ul>
+        <li><strong>Sweep</strong> (پویش) — یک خط چرخان دایره‌ای</li>
+        <li><strong>نقاط blip</strong> — هر ماموریت یک نقطه</li>
+        <li><strong>رنگ‌ها</strong> — قرمز/زرد/سبز برای اولویت</li>
+        <li><strong>فاصله از مرکز</strong> — فوریت (نزدیک‌تر = فوری‌تر)</li>
+      </ul>
+      <p><strong>کاربرد:</strong> در یک نگاه می‌فهمی الان چه ماموریت‌هایی روی میز است. این جایگزین «inbox» در نرم‌افزارهای دیگه است.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon" style="color:var(--cy)">📋</div>
+      <div class="feature-title">۷ — ماموریت‌ها (Missions Tab)</div>
+      <div class="feature-tag">F-07</div>
+    </div>
+    <div class="feature-body">
+      <p><strong>چیست:</strong> تب دوم. لیست تمام ماموریت‌های ۷ روز اخیر.</p>
+      <p><strong>فیلترها:</strong> ALL · TASK · IDEA · REMINDER · FINANCE · HEALTH · SHOPPING · HIGH</p>
+      <p><strong>هر ردیف شامل:</strong></p>
+      <ul>
+        <li>نقطه‌ی priority (color-coded)</li>
+        <li>متن آیتم</li>
+        <li>تگ‌های هوشمند</li>
+        <li>checkbox</li>
+      </ul>
+      <p><strong>تپ روی checkbox:</strong> انیمیشن burst + صدای جشن + +۵۰ XP + تیک سبز ✓</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon" style="color:var(--vi)">⏰</div>
+      <div class="feature-title">۸ — یادآورها (Reminders Tab)</div>
+      <div class="feature-tag">F-08</div>
+    </div>
+    <div class="feature-body">
+      <p><strong>چیست:</strong> تب سوم. فرم ثبت یادآور با date/time picker.</p>
+      <p><strong>فیلدها:</strong> متن یادآور · تاریخ و ساعت · اولویت</p>
+      <p><strong>نحوه کار:</strong></p>
+      <ul>
+        <li>سیستم هر ۱۰ دقیقه چک می‌کند</li>
+        <li>در زمان موعود، پیام تلگرام می‌فرستد</li>
+        <li>کاربر می‌تواند روی «انجام شد» تپ کند</li>
+      </ul>
+      <p><strong>مثال:</strong> متن: «قرص رو بخور» — زمان: ۲۲:۰۰ امشب. ساعت ۲۲:۰۰، تلگرام: «🔔 یادآور: قرص رو بخور».</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon" style="color:var(--am)">📊</div>
+      <div class="feature-title">۹ — آمار (Stats Tab)</div>
+      <div class="feature-tag">F-09</div>
+    </div>
+    <div class="feature-body">
+      <p><strong>چیست:</strong> تب چهارم. نمای کلی از فعالیتت.</p>
+      <p><strong>نمایش:</strong></p>
+      <ul>
+        <li>XP فعلی + سطح (Level)</li>
+        <li>Streak روزانه — روزهای متوالی فعال بودن</li>
+        <li>نمودار توزیع نوع آیتم‌ها</li>
+        <li>تعداد کل ماموریت‌های تکمیل‌شده</li>
+        <li>بهترین روز هفته</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon" style="color:var(--mag)">⭕</div>
+      <div class="feature-title">۱۰ — حلقه‌های پیشرفت (Progress Rings)</div>
+      <div class="feature-tag">F-10</div>
+    </div>
+    <div class="feature-body">
+      <p><strong>چیست:</strong> سه حلقه Apple-Watch-style:</p>
+      <ul>
+        <li><strong style="color:var(--re)">Work</strong> — حلقه قرمز (تسک‌های کاری)</li>
+        <li><strong style="color:var(--g)">Health</strong> — حلقه سبز (سلامت)</li>
+        <li><strong style="color:var(--cy)">Mind</strong> — حلقه آبی (ایده‌ها، یادداشت‌ها)</li>
+      </ul>
+      <p>با هر تیک، حلقه مربوطه با انیمیشن نرم پر می‌شود. <em>دوپامین بصری خالص</em>.</p>
+    </div>
+  </div>
+
+  <!-- ═══ CATEGORY 3: AI ═══ -->
+  <h3>🧠 هوش مصنوعی (AI Engine)</h3>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon" style="color:var(--g)">🤖</div>
+      <div class="feature-title">۱۱ — طبقه‌بندی هوشمند (Smart Classification)</div>
+      <div class="feature-tag">F-11</div>
+    </div>
+    <div class="feature-body">
+      <p>هر پیامی که می‌فرستی، در عرض ۲-۳ ثانیه فنریر:</p>
+      <ul>
+        <li>نوع آیتم را تشخیص می‌دهد (۹ دسته)</li>
+        <li>اولویت را تعیین می‌کند</li>
+        <li>تگ‌های مرتبط می‌زند (تا ۸ تگ)</li>
+        <li>یک خلاصه یک‌جمله‌ای می‌دهد</li>
+        <li>یک پاسخ تاکتیکی فارسی تولید می‌کند</li>
+      </ul>
+      <p>این کار توسط <strong>Gemini 2.5 Flash (Google)</strong> انجام می‌شود — قوی‌ترین مدل آماده برای کلاسیفیکیشن.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon" style="color:var(--cy)">📰</div>
+      <div class="feature-title">۱۲ — گزارش روزانه (Daily Digest)</div>
+      <div class="feature-tag">F-12</div>
+    </div>
+    <div class="feature-body">
+      <p><strong>چیست:</strong> هر روز، یا on-demand از تب OPS، یک گزارش کامل از فعالیت ۲۴ ساعت گذشته‌ات.</p>
+      <p><strong>۹ بخش:</strong></p>
+      <p>🔴 کارهای فوری · ✅ کارهای امروز · 💡 ایده‌ها · 📅 رویدادها · 💰 مالی · 🏥 سلامت · 📝 یادداشت‌های کلیدی · 📊 خلاصه آماری · 🎯 پیشنهاد فنریر</p>
+      <p><strong>مثال خروجی:</strong></p>
+      <blockquote style="margin:.8rem 0">
+        🐺 فرمانده، گزارش امروز:<br>
+        ⚡ ۳ هدف فوری شناسایی شده. مهم‌ترین: «جلسه با علی ۳ عصر».<br>
+        ✅ امروز ۷ ماموریت پاکسازی کردی — بازدهی ۹۰٪.<br>
+        💡 یه ایده ثبت کردی درباره گسترش به B2B — ارزش پیگیری داره.<br>
+        🎯 پیشنهاد: فردا قبل از جلسه، اون ایده رو یه ساعت زمان بده. بزن بریم! 🐺
+      </blockquote>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon" style="color:var(--vi)">📈</div>
+      <div class="feature-title">۱۳ — گزارش هفتگی (Weekly Report)</div>
+      <div class="feature-tag">F-13</div>
+    </div>
+    <div class="feature-body">
+      <p><strong>چیست:</strong> یک گزارش جامع از کل هفته، با عمق بیشتر:</p>
+      <ul>
+        <li>روند هفته (بهترین و بدترین روز)</li>
+        <li>الگوهای کشف‌شده</li>
+        <li>مقایسه با هفته قبل</li>
+        <li>یک «دستور هفتگی» از فنریر</li>
+      </ul>
+      <p><strong>پشت صحنه:</strong> این گزارش توسط <em>Gemini 3.1 Pro</em> تولید می‌شود — قوی‌ترین مدل Google برای استدلال طولانی.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon" style="color:var(--am)">🛰️</div>
+      <div class="feature-title">۱۴ — پهپاد شناسایی (Heartbeat Mentor)</div>
+      <div class="feature-tag">F-14</div>
+    </div>
+    <div class="feature-body">
+      <p><strong>چیست:</strong> هر روز ساعت ۱۲:۳۰ ظهر، یک پیام <em>بدون درخواست</em> از فنریر در تلگرام دریافت می‌کنی.</p>
+      <p><strong>مثال:</strong></p>
+      <blockquote style="margin:.8rem 0">
+        ⚡ گزارش شناسایی پهپاد V7 — Scout Drone<br><br>
+        فرمانده، رادار ۴ هدف عملیاتی شناسایی کرده. اولویت تاکتیکی با «بازنگری مالی پروژه LifeOps» است — این هدف ۲ روزه باز است.<br><br>
+        📊 وضعیت: ۴ هدف معوقه<br>
+        🐺
+      </blockquote>
+      <p><strong>چرا مهم است:</strong> این «<span class="mag">دوپامین غافلگیری</span>» — کاربر اصلاً انتظار ندارد، ولی هر روز یک یادآوری تاکتیکی می‌آید.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon" style="color:var(--mag)">🐺</div>
+      <div class="feature-title">۱۵ — چت با فنریر (Conversational AI)</div>
+      <div class="feature-tag">F-15</div>
+    </div>
+    <div class="feature-body">
+      <p><strong>چطور کار می‌کند:</strong> روی + → 🐺 → پنل چت تمام‌صفحه باز می‌شود.</p>
+      <p><strong>می‌توانی بپرسی:</strong></p>
+      <ul>
+        <li><strong>سوال عمومی:</strong> «چطور عادت‌سازی رو شروع کنم؟»</li>
+        <li><strong>برنامه‌ریزی:</strong> «برام یه روتین ۹۰ روزه بساز برای یاد گرفتن Python»</li>
+        <li><strong>تحلیل:</strong> «دیتای این هفته‌م رو نگاه کن، چی می‌بینی؟»</li>
+        <li><strong>چالش:</strong> «من می‌گم ۳ کیلو وزن کم می‌کنم — تو چی می‌گی؟»</li>
+      </ul>
+      <p><strong>ویژگی پاسخ‌ها:</strong></p>
+      <ul>
+        <li>به فارسی</li>
+        <li>لحن تاکتیکی، سرد، وفادار</li>
+        <li>گاهی چالش‌برانگیز («فرمانده، با مغز خسته نمی‌شه...»)</li>
+        <li>شامل context از ۵ پیام آخرت</li>
+      </ul>
+      <p>این فنریر است — <em>نه ChatGPT خشک</em>.</p>
+    </div>
+  </div>
+
+  <!-- ═══ CATEGORY 4: GAMIFICATION ═══ -->
+  <h3>🎮 گیمیفیکیشن (Constructive Dopamine)</h3>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon" style="color:var(--gold)">⭐</div>
+      <div class="feature-title">۱۶ — XP و سطح (Level System)</div>
+      <div class="feature-tag">F-16</div>
+    </div>
+    <div class="feature-body">
+      <p>هر بار که کاری انجام می‌دهی، XP می‌گیری:</p>
+      <ul>
+        <li>ثبت ماموریت: <strong>+۲۰ XP</strong></li>
+        <li>تیک ماموریت معمولی: <strong>+۵۰ XP</strong></li>
+        <li>تیک ماموریت HIGH: <strong>+۲۰۰ XP</strong></li>
+        <li>Streak ۷ روزه: <strong>+۵۰۰ XP</strong> (badge اضافه)</li>
+        <li>پاسخ Daily Combo: <strong>+۱۰۰۰ XP</strong></li>
+      </ul>
+      <p>هر ۵۰۰۰ XP = یک level بالاتر.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon" style="color:var(--re)">🔥</div>
+      <div class="feature-title">۱۷ — Streak Tracker</div>
+      <div class="feature-tag">F-17</div>
+    </div>
+    <div class="feature-body">
+      <p>هر روز که فعال هستی (حداقل ۱ ماموریت ثبت یا تیک)، Streak یک قدم بالا می‌رود:</p>
+      <ul>
+        <li><strong>۳ روز</strong> → badge مبتدی</li>
+        <li><strong>۷ روز</strong> → badge «Iron Will»</li>
+        <li><strong>۳۰ روز</strong> → badge «Unbreakable»</li>
+        <li><strong>۱۰۰ روز</strong> → badge legendary <span class="gold">«Übermensch»</span></li>
+      </ul>
+      <p>اگر یک روز را miss کنی، Streak ریست می‌شود (اخطار قرمز قبل از ریست داده می‌شود).</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon" style="color:var(--cy)">🔔</div>
+      <div class="feature-title">۱۸ — صدا و لرزش (Audio + Haptic)</div>
+      <div class="feature-tag">F-18</div>
+    </div>
+    <div class="feature-body">
+      <p>هر تعامل با احساس همراه است:</p>
+      <ul>
+        <li>ثبت ماموریت → صدای jingle</li>
+        <li>تیک ماموریت → صدای سکه + لرزش</li>
+        <li>Daily Combo → صدای جشن</li>
+        <li>Streak شکستن → صدای هشدار</li>
+      </ul>
+      <p>این کار، تفاوت بین یک ابزار «ساکت» و یک تجربه «زنده» است.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon" style="color:var(--vi)">🧩</div>
+      <div class="feature-title">۱۹ — Daily Combo (در حال آمدن — v8)</div>
+      <div class="feature-tag">F-19 · COMING</div>
+    </div>
+    <div class="feature-body">
+      <p>هر روز، فنریر سه آیتم قدیمی رندوم را ترکیب می‌کند و یک پازل یا سوال می‌سازد. اگر جواب بدهی، <strong>۱۰۰۰ سکه</strong> (و یک <em>دوپامین کشف عمیق</em>).</p>
+      <p><strong>مثال:</strong> «فرمانده، دو هفته پیش یه نوت درباره 'مدل‌های زبانی' ذخیره کردی و یه ماه پیش ایده ای دادی درباره 'اتوماسیون ایمیل'. اگر بتونی امروز ترکیب این دو رو بگی، ۱۰۰۰ سکه پاداش!»</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon" style="color:var(--am)">⏱️</div>
+      <div class="feature-title">۲۰ — Pomodoro Mode (در حال آمدن — v9)</div>
+      <div class="feature-tag">F-20 · COMING</div>
+    </div>
+    <div class="feature-body">
+      <p>تایمر ۲۵ دقیقه‌ای متمرکز. اگر بدون خروج از اپ، Session را تمام کنی، یک «کد مورس» دریافت می‌کنی که برای جایزه وارد می‌کنی.</p>
+      <p>چالش روزانه برای ADHD-brain. ترکیب بهره‌وری + بازی.</p>
+    </div>
+  </div>
+
+  <!-- ═══ CATEGORY 5: OPERATIONS ═══ -->
+  <h3>⚙️ مدیریت و کنترل (Operations)</h3>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon" style="color:var(--g)">🔄</div>
+      <div class="feature-title">۲۱ — همگام‌سازی دستی (Manual Sync)</div>
+      <div class="feature-tag">F-21</div>
+    </div>
+    <div class="feature-body">
+      <p><strong>OPS Tab → «🔄 همگام‌سازی»</strong></p>
+      <p>اگر فکر می‌کنی داده‌هایت در حالت refresh نیست، روی این بزن تا داده‌ها از Sheets دوباره لود شوند. مثل F5 در مرورگر، اما برای فنریر.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon" style="color:var(--cy)">🗑️</div>
+      <div class="feature-title">۲۲ — پاکسازی ماموریت‌های تمام‌شده</div>
+      <div class="feature-tag">F-22</div>
+    </div>
+    <div class="feature-body">
+      <p><strong>OPS Tab → «🗑️ پاکسازی ماموریت‌های تموم شده»</strong></p>
+      <p>تمام آیتم‌های done را آرشیو می‌کند (از رادار و missions حذف می‌شوند، اما در Sheets <em>همچنان وجود دارند</em>). این برای تمیز نگه داشتن نمای فعلی است.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon" style="color:var(--vi)">🔬</div>
+      <div class="feature-title">۲۳ — تست اتصال (Diagnose)</div>
+      <div class="feature-tag">F-23</div>
+    </div>
+    <div class="feature-body">
+      <p><strong>OPS Tab → «🔬 تست اتصال (Diagnose)»</strong></p>
+      <p>یک گزارش کامل از وضعیت اتصال:</p>
+      <ul>
+        <li>تست شبکه</li>
+        <li>تست ۷ پراکسی مختلف</li>
+        <li>Live PUT test</li>
+        <li>پروکسی فعال</li>
+        <li>تعداد آیتم‌های لود شده</li>
+      </ul>
+      <p>اگر مشکلی داشته باشی، این <strong>اولین کاری است که می‌توانی بکنی</strong>.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon" style="color:var(--am)">🛡️</div>
+      <div class="feature-title">۲۴ — تنظیم پراکسی شخصی</div>
+      <div class="feature-tag">F-24</div>
+    </div>
+    <div class="feature-body">
+      <p><strong>OPS Tab → «🛡️ تنظیم Proxy شخصی»</strong></p>
+      <p>اگر در منطقه‌ای هستی که پراکسی‌های عمومی فیلتر شدند (مثلاً ایران)، می‌توانی یک Cloudflare Worker شخصی بسازی و آدرسش را اینجا وارد کنی. این یعنی <strong>حتی روی شبکه‌های فیلتر شده فنریر کار می‌کند</strong>.</p>
+    </div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div class="feature-icon" style="color:var(--mag)">📡</div>
+      <div class="feature-title">۲۵ — وضعیت سیستم (System Status)</div>
+      <div class="feature-tag">F-25</div>
+    </div>
+    <div class="feature-body">
+      <p>نمایش زنده وضعیت همه اجزای سیستم:</p>
+      <ul>
+        <li><strong>N8N</strong>: ACTIVE / OFFLINE</li>
+        <li><strong>Google Sheets</strong>: SYNCED</li>
+        <li><strong>Reminder System</strong>: EVERY 10 MIN</li>
+        <li><strong>AI Gateway</strong>: ONLINE</li>
+        <li><strong>TG Bot</strong>: CONNECTED</li>
+        <li><strong>CORS Proxy</strong>: corsproxy.io / custom</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 6 — ADVANCED TRICKS
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="sect" id="advanced">
+  <div class="sect-num">06</div>
+  <div class="sect-tag">▼ POWER USER ARSENAL</div>
+  <h1 class="sect-title">ترفندهای پیشرفته</h1>
+  <p class="sect-sub">
+    این بخش برای کاربری است که از فنریر فقط استفاده نمی‌کند — آن را به یک <em>سیستم عملیاتی شخصی</em> تبدیل می‌کند. هفت ترفندی که تفاوت بین «کاربر معمولی» و <span class="gold">«Übermensch»</span> را می‌سازند.
+  </p>
+
+  <div class="card card-gold">
+    <h4>🔥 ترفند ۱ — Inbox Zero با فنریر</h4>
+    <p>اگر ادعا می‌کنی «ذهنم همیشه شلوغه»، یعنی هنوز Inbox Zero نداری. این روتین را <strong>۳۰ روز</strong> پشت سر بگذار:</p>
+    <ul>
+      <li><strong>صبح ۸:۰۰</strong> — قبل از هر چیز، فنریر را باز کن → یک نگاه به رادار → ۳ ماموریت اولویت بالا را انتخاب کن (Today's Targets)</li>
+      <li><strong>در طول روز</strong> — هر چیزی به ذهنت رسید، فوراً به فنریر بنویس. <em>حتی اگر «بعداً قراره فراموش بشه»</em> (به‌خصوص این‌ها)</li>
+      <li><strong>ظهر ۱۲:۳۰</strong> — پیام Heartbeat Mentor می‌آید → ۱۰ دقیقه مکث کن، پاسخ بده</li>
+      <li><strong>شب ۱۰:۳۰</strong> — OPS Tab → پاکسازی ماموریت‌های تموم شده → یک Daily Digest درخواست کن (مرور)</li>
+    </ul>
+    <p><strong>نتیجه:</strong> ذهنت در ۳۰ روز <span class="mag">۸۰٪ سبک‌تر</span> می‌شود.</p>
+  </div>
+
+  <div class="card card-cyan">
+    <h4>🏷️ ترفند ۲ — تگ‌گذاری استراتژیک</h4>
+    <p>فنریر خودش تگ می‌زند، اما تو می‌توانی تگ‌های خاصی را به‌صورت <em>سیستماتیک</em> استفاده کنی:</p>
+    <ul>
+      <li><code>#project_x</code> → همه چیز مربوط به یک پروژه خاص</li>
+      <li><code>#person_ali</code> → همه چیز مربوط به یک شخص</li>
+      <li><code>#waiting</code> → کارهایی که منتظر تایید/پاسخ کسی هستی</li>
+      <li><code>#idea_for_later</code> → ایده‌هایی که الان وقت اجرا نیست</li>
+      <li><code>#review_weekly</code> → آیتم‌هایی که هفتگی باید مرور کنی</li>
+      <li><code>#vault_secret</code> → اطلاعات حساس (پرونده پزشکی، کدها)</li>
+    </ul>
+    <p>سپس در tab Missions، فیلتر می‌کنی بر اساس تگ. این روش، فنریر را به یک <em>knowledge management system</em> کامل تبدیل می‌کند.</p>
+  </div>
+
+  <div class="card card-emerald">
+    <h4>🎙️ ترفند ۳ — Voice Capture برای ADHD</h4>
+    <p>اگر ADHD داری، تایپ کردن گاهی سخت است (<em>mind faster than fingers</em>). این روش بهترین کار است:</p>
+    <ul>
+      <li>کلید Voice (🎙) را در shortcut تلگرامت بگذار</li>
+      <li>هر بار که ایده‌ای به ذهنت رسید، یک ویس ۵ ثانیه‌ای بفرست</li>
+      <li>نخواه «جمله کامل» باشد — حتی کلیدواژه کافی‌ست</li>
+      <li>فنریر transcribe می‌کند و معنا می‌فهمد</li>
+    </ul>
+    <blockquote style="margin:1rem 0">
+      یک کاربر ADHD گفت: «من تو روز ۴۰ تا ویس می‌فرستم. شب که برمی‌گردم می‌بینم همه چیز ذخیره شده و دسته‌بندی شده. این تنها چیزیه که برام کار کرده.»
+    </blockquote>
+  </div>
+
+  <div class="card card-violet" style="border-color:rgba(155,89,255,.45)">
+    <h4>📅 ترفند ۴ — Weekly Review Ritual</h4>
+    <p>هر <strong>یک‌شنبه شب</strong>، این ۲۰ دقیقه را به فنریر اختصاص بده:</p>
+    <ol>
+      <li>OPS Tab → «گزارش هفتگی» بزن</li>
+      <li>منتظر بمان ۱۰ ثانیه — Gemini 3.1 Pro یک گزارش جامع می‌سازد</li>
+      <li>آن را با دقت بخوان — به‌خصوص بخش «الگوها» و «پیشنهاد»</li>
+      <li>سه ماموریت اولویت بالا برای هفته بعد ثبت کن</li>
+      <li>آیتم‌های done این هفته را آرشیو کن</li>
+    </ol>
+    <p><strong>این روتین، تفاوت بین «کاربر معمولی» و <span class="gold">«Übermensch»</span> است.</strong></p>
+  </div>
+
+  <div class="card card-red">
+    <h4>🔐 ترفند ۵ — استفاده از فنریر برای دیتای حساس</h4>
+    <p>شماره پرونده پزشکی، شماره بیمه، کد رهگیری بانک — این‌ها را کجا ذخیره می‌کنی؟ روی کاغذ؟ Notes گوشی؟</p>
+    <p><strong>فنریر یک گزینه امن‌تر است</strong> چون:</p>
+    <ul>
+      <li>روی Google Sheets شخصی توست (لایه‌های امنیتی گوگل)</li>
+      <li>فقط با گوگل اکانت تو قابل دسترسی است</li>
+      <li>Telegram encryption در ترانزیت</li>
+    </ul>
+    <p><strong>پیشنهاد:</strong></p>
+    <ul>
+      <li>یک تگ <code>#vault_secret</code> استفاده کن</li>
+      <li>هر اطلاعات حساس را با این تگ ثبت کن</li>
+      <li>برای پسوردهای واقعی، از یک <em>password manager</em> مثل Bitwarden استفاده کن (فنریر برای پسورد ساخته نشده)</li>
+    </ul>
+  </div>
+
+  <div class="card card-amber">
+    <h4>📱 ترفند ۶ — Telegram Quick Capture</h4>
+    <p>برای <em>سریع‌ترین</em> ثبت ممکن، این تنظیمات را در تلگرامت بکن:</p>
+    <ul>
+      <li>📌 Pin کن ربات فنریر را در بالای چت‌ها</li>
+      <li>🔔 Notification صدای خاصی بهش بده</li>
+      <li>📱 <strong>روی iOS:</strong> Add to Home Screen به‌عنوان web shortcut</li>
+      <li>🤖 <strong>روی Android:</strong> shortcut روی desktop</li>
+    </ul>
+    <p>با این تنظیمات، هر چیزی ذهنت بود، در عرض <strong>۲ ثانیه</strong> ثبت می‌شود.</p>
+  </div>
+
+  <div class="card card-emerald">
+    <h4>📊 ترفند ۷ — استفاده از داده‌ها برای تصمیم‌گیری</h4>
+    <p>پس از ۱ ماه استفاده، در Sheets داده‌های گرانبهایی داری:</p>
+    <ul>
+      <li>کدام ساعت‌های روز بیشترین ایده داری؟</li>
+      <li>کدام نوع تسک‌ها همیشه به تعویق می‌افتند؟</li>
+      <li>کدام پروژه‌ها بیشترین انرژی می‌گیرند؟</li>
+      <li>الگوی خواب/کار/استراحتت چیست؟</li>
+    </ul>
+    <p>از فنریر در چت بپرس:</p>
+    <blockquote style="margin:.8rem 0">«داده‌های ماه گذشته‌م رو تحلیل کن — کدام الگوها رو می‌بینی؟»</blockquote>
+    <p>پاسخ فنریر، یک <em>آینه‌ای از خودت</em> است. این چیزی است که هیچ روان‌شناسی نمی‌تواند در عرض ۲ دقیقه به تو بدهد.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 7 — 7 REAL SCENARIOS
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="sect" id="scenarios">
+  <div class="sect-num">07</div>
+  <div class="sect-tag">▼ LIVE SCENARIOS</div>
+  <h1 class="sect-title">۷ سناریوی واقعی روزانه</h1>
+  <p class="sect-sub">
+    برای اینکه دقیق‌تر بفهمی فنریر چگونه در زندگی واقعی کار می‌کند، این هفت سناریو از کاربران واقعی است. هر کدام، یک تجربه‌ی زنده.
+  </p>
+
+  <!-- Scenario 1 -->
+  <div class="scenario">
+    <div class="scenario-header">▼ SCENARIO 01</div>
+    <div class="scenario-title">🚀 کارآفرین در حال سفر</div>
+    <div class="scenario-persona">مهرداد، ۳۲ ساله، صاحب یک agency دیجیتال</div>
+    <p>ساعت ۶ صبح، در پرواز به ترکیه. ایده‌ای به ذهنش می‌رسد. به‌جای نوشتن روی دفترچه که گم می‌شود:</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">06:14 · در پرواز</div>
+        <div class="tl-body"><span class="who">[مهرداد]</span> ویس ۲۰ ثانیه‌ای: «یه ایده برای agency — می‌تونیم یه پکیج ویژه برای رستوران‌ها بسازیم با سه ماه Instagram + SEO. قیمت ۸ میلیون»<br><br><span class="fenrir">🐺 فنریر:</span> «ایده ثبت شد. نوع: IDEA + BUSINESS. تگ‌ها: [پکیج، رستوران، instagram، SEO]. می‌خوای فردا یه برنامه اجرایی برات بنویسم؟»</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">14:30 · فرودگاه استانبول</div>
+        <div class="tl-body"><span class="who">[مهرداد]</span> «هزینه تاکسی فرودگاه ۸۰ یورو»<br><br><span class="fenrir">🐺 فنریر:</span> «ثبت شد. نوع: FINANCE.»</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">22:00 · در هتل</div>
+        <div class="tl-body"><span class="who">[مهرداد]</span> «اون ایده پکیج رستوران رو یادته؟ یه طرح اجرایی برام بنویس.»<br><br><span class="fenrir">🐺 فنریر:</span> یک طرح ۵ مرحله‌ای ارائه می‌دهد.</div>
+      </div>
+    </div>
+    <div class="scenario-result">
+      <div class="scenario-result-ico">✅</div>
+      <div class="scenario-result-body"><strong>نتیجه:</strong> ۳ ایده، ۲ هزینه، یک طرح اجرایی — همه ثبت و دسته‌بندی شده. ۶ ماه بعد، می‌تونه سفرش به ترکیه رو با تمام جزئیاتش بازخوانی کنه.</div>
+    </div>
+  </div>
+
+  <!-- Scenario 2 -->
+  <div class="scenario">
+    <div class="scenario-header">▼ SCENARIO 02</div>
+    <div class="scenario-title">🧠 دانشجوی پزشکی با ADHD</div>
+    <div class="scenario-persona">نرگس، ۲۴ ساله، دانشجوی پزشکی</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">08:00</div>
+        <div class="tl-body"><span class="who">[نرگس]</span> پیام تلگرام: «امروز باید ۳ فصل از فارماکولوژی بخونم، ولی هیچ انرژی ندارم»<br><br><span class="fenrir">🐺 فنریر:</span> «شناسایی شد. نوع: GOAL + HEALTH. تگ‌ها: [خواندن، فارماکولوژی، انرژی_پایین]. فرمانده، تو ۳ فصل رو یکجا نمی‌خونی — مغز ADHD این‌طور کار نمی‌کنه. پیشنهاد: ۴ تا Pomodoro 25 دقیقه‌ای، با ۵ دقیقه استراحت بینشون. آماده‌ای؟»</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">08:30</div>
+        <div class="tl-body"><span class="who">[نرگس]</span> Pomodoro Mode را روشن می‌کند.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">09:55</div>
+        <div class="tl-body">پس از ۴ Session، یک کد مورس می‌گیرد. وارد می‌کند → ۳۰۰۰ سکه پاداش + badge <em>«Focus Warrior»</em></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">12:30</div>
+        <div class="tl-body"><span class="fenrir">🐺 Heartbeat Mentor:</span> «فرمانده، عالی عمل کردی تا الان. حلقه Mind نصفش پر شده. می‌خوای بعد از ناهار ۲ Session دیگه؟»</div>
+      </div>
+    </div>
+    <div class="scenario-result">
+      <div class="scenario-result-ico">🎯</div>
+      <div class="scenario-result-body"><strong>نتیجه:</strong> نرگس روزی که فکر می‌کرد هیچ کار نمی‌کند، <strong>۲ فصل تمام کرد</strong>. این قدرت ترکیب AI + ADHD-aware design است.</div>
+    </div>
+  </div>
+
+  <!-- Scenario 3 -->
+  <div class="scenario">
+    <div class="scenario-header">▼ SCENARIO 03</div>
+    <div class="scenario-title">👨‍👧‍👦 والد مشغول</div>
+    <div class="scenario-persona">علی، ۳۸ ساله، پدر دو فرزند، مدیر IT</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">07:20 · در مسیر مدرسه</div>
+        <div class="tl-body"><span class="who">[علی]</span> ویس: «یادم باشه فردا برم پرونده پزشکی پسرم رو بگیرم از بیمارستان شهدا»<br><br><span class="fenrir">🐺 فنریر:</span> «ثبت شد + یک یادآور برای فردا ۹ صبح.»</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">09:15 · در محل کار</div>
+        <div class="tl-body"><span class="who">[علی]</span> «شماره پرونده پسرم: ۱۲۹۵۰»<br><br><span class="fenrir">🐺 فنریر:</span> «به فایل سلامت اضافه شد. تگ: #vault_secret»</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">13:45</div>
+        <div class="tl-body"><span class="who">[علی]</span> عکس قبض برق<br><br><span class="fenrir">🐺 فنریر:</span> «۸۵۰ هزار تومن. ثبت در FINANCE.»</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">20:30</div>
+        <div class="tl-body"><span class="who">[علی]</span> چت: «فردا برای جلسه با مدیرعامل، یه نکته باهوش می‌خوام — کدوم پیشنهاداتم اخیراً رو داشتم؟»<br><br><span class="fenrir">🐺 فنریر:</span> دو ایده قدیمی را با هم ترکیب می‌کند.</div>
+      </div>
+    </div>
+    <div class="scenario-result">
+      <div class="scenario-result-ico">✨</div>
+      <div class="scenario-result-body"><strong>نتیجه:</strong> علی هیچ‌چیز را فراموش نمی‌کند — حتی شماره پرونده پزشکی پسرش از ۲ سال پیش.</div>
+    </div>
+  </div>
+
+  <!-- Scenario 4 -->
+  <div class="scenario">
+    <div class="scenario-header">▼ SCENARIO 04</div>
+    <div class="scenario-title">📖 نویسنده در حال خلق</div>
+    <div class="scenario-persona">ندا، ۲۹ ساله، نویسنده داستان کوتاه</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">04:00 · بیدار از خواب</div>
+        <div class="tl-body"><span class="who">[ندا]</span> ویس: «یه ایده — داستانی درباره یک گرگ دیجیتال که زنجیرهاش رو پاره می‌کنه و وارد دنیای واقعی می‌شه...»<br><br><span class="fenrir">🐺 فنریر:</span> «ثبت شد. نوع: IDEA. تگ‌ها: [داستان، اساطیر، دیجیتال]. می‌خوای ادامه‌ش رو بنویسی؟»</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">10:30</div>
+        <div class="tl-body"><span class="who">[ندا]</span> چت: «اون ایده گرگ دیجیتال — یه پلات کامل برام بساز»<br><br><span class="fenrir">🐺 فنریر:</span> یک پلات سه‌پرده‌ای می‌سازد.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">هفته بعد</div>
+        <div class="tl-body"><span class="who">[ندا]</span> چت: «من چندتا ایده داستان ثبت کردم. ۳ تای بهتر رو معرفی کن»<br><br><span class="fenrir">🐺 فنریر:</span> بر اساس تگ‌ها و pattern انتخاب می‌کند.</div>
+      </div>
+    </div>
+    <div class="scenario-result">
+      <div class="scenario-result-ico">✍️</div>
+      <div class="scenario-result-body"><strong>نتیجه:</strong> یک ایده شبانه ۴ صبح، تبدیل به یک <strong>داستان کامل</strong> می‌شود — به‌جای اینکه فراموش شود.</div>
+    </div>
+  </div>
+
+  <!-- Scenario 5 -->
+  <div class="scenario">
+    <div class="scenario-header">▼ SCENARIO 05</div>
+    <div class="scenario-title">💪 ورزشکار حرفه‌ای</div>
+    <div class="scenario-persona">رضا، ۲۷ ساله، بدنساز مسابقاتی</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">06:00 · قبل از تمرین</div>
+        <div class="tl-body"><span class="who">[رضا]</span> «امروز پشت‌بازو + سرشانه. وزن کنونی: ۸۹.۲ کیلو»<br><br><span class="fenrir">🐺 فنریر:</span> «HEALTH ثبت شد. روند: -۰.۳ کیلو از هفته قبل.»</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">08:30 · بعد از تمرین</div>
+        <div class="tl-body"><span class="who">[رضا]</span> «PR در bench press: ۱۲۰×۸»</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">12:00</div>
+        <div class="tl-body"><span class="who">[رضا]</span> عکس از غذا<br><br><span class="fenrir">🐺 فنریر:</span> «به دفتر تغذیه اضافه شد.»</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">21:00</div>
+        <div class="tl-body"><span class="who">[رضا]</span> «حالم اصلاً خوب نیست، خسته‌ام. می‌ترسم فردا تمرین کنم»<br><br><span class="fenrir">🐺 فنریر:</span> «۳ روز پشت سر هم تمرین کردی، PR زدی، رژیم رو هم رعایت کردی. مغز و بدنت نیاز به ۲۴ ساعت ریکاوری دارن. فردا استراحت کن. این از قدرته، نه ضعف. 🐺»</div>
+      </div>
+    </div>
+    <div class="scenario-result">
+      <div class="scenario-result-ico">🏆</div>
+      <div class="scenario-result-body"><strong>نتیجه:</strong> رضا یک <em>«کوچ هوشمند»</em> در جیبش دارد — که نه پول می‌خواهد، نه خسته می‌شود.</div>
+    </div>
+  </div>
+
+  <!-- Scenario 6 -->
+  <div class="scenario">
+    <div class="scenario-header">▼ SCENARIO 06</div>
+    <div class="scenario-title">📈 سرمایه‌گذار ارز دیجیتال</div>
+    <div class="scenario-persona">کیان، ۳۵ ساله، trader و سرمایه‌گذار</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">07:00 · چارت تحلیل کرد</div>
+        <div class="tl-body"><span class="who">[کیان]</span> «وارد BTC شدم 98k، حد ضرر 92k، تارگت 108k. مقدار: ۲ BTC»<br><br><span class="fenrir">🐺 فنریر:</span> «FINANCE ثبت شد. تگ‌ها: [BTC، معامله، long]»</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">14:30 · خبر مهم</div>
+        <div class="tl-body"><span class="who">[کیان]</span> forward یک پیام از کانال خبری<br><br><span class="fenrir">🐺 فنریر:</span> «به فایل watchlist اضافه شد.»</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">22:00</div>
+        <div class="tl-body"><span class="who">[کیان]</span> چت: «معاملات این هفته رو خلاصه کن»<br><br><span class="fenrir">🐺 فنریر:</span> «۴ معامله: ۲ سود ($2300)، ۱ ضرر ($500)، ۱ هنوز باز. Win rate: 75%. الگو: <em>معاملات صبحگاهی موفق‌تر بودن.</em>»</div>
+      </div>
+    </div>
+    <div class="scenario-result">
+      <div class="scenario-result-ico">💰</div>
+      <div class="scenario-result-body"><strong>نتیجه:</strong> کیان یک <em>«journal تریدینگ» خودکار</em> دارد — با pattern analysis که هیچ trader حرفه‌ای بدون آن موفق نمی‌شود.</div>
+    </div>
+  </div>
+
+  <!-- Scenario 7 -->
+  <div class="scenario">
+    <div class="scenario-header">▼ SCENARIO 07</div>
+    <div class="scenario-title">👴 بازنشسته فعال</div>
+    <div class="scenario-persona">آقای کریمی، ۶۷ ساله، بازنشسته دانشگاه</div>
+    <p>شاید فکر می‌کنی فنریر برای جوون‌هاست. ولی:</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-time">08:00</div>
+        <div class="tl-body"><span class="who">[کریمی]</span> ویس: «فرزانه گفته فردا برای ناهار میره خواهرش. یادم باشه نخوام بیام»</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">10:00</div>
+        <div class="tl-body"><span class="who">[کریمی]</span> ویس: «امروز رفتم خرید — برنج، روغن، شکر. ۴۵۰ هزار تومن»</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-time">15:00</div>
+        <div class="tl-body"><span class="who">[کریمی]</span> چت: «یه کتاب از حافظ می‌خواستم پیدا کنم. یادمه ۲ ماه پیش یکی از همکارای قدیمی پیشنهاد داده بود. اسمش چی بود؟»<br><br><span class="fenrir">🐺 فنریر:</span> «۸ هفته پیش، آقای جعفرپور پیشنهاد داد: <em>«دیوان حافظ — تصحیح خانلری».</em>»</div>
+      </div>
+    </div>
+    <div class="scenario-result">
+      <div class="scenario-result-ico">💜</div>
+      <div class="scenario-result-body"><strong>نتیجه:</strong> حتی در ۶۷ سالگی، فنریر «<em>حافظه‌ای که دیگه از دست نمیره</em>» است. این هدیه ارزشمندتر از طلا.</div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 8 — FAQ
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="sect" id="faq">
+  <div class="sect-num">08</div>
+  <div class="sect-tag">▼ FREQUENTLY ASKED</div>
+  <h1 class="sect-title">سوالات متداول و عیب‌یابی</h1>
+  <p class="sect-sub">
+    سوالاتی که قبل از پیوستن، در ذهن تو خواهد چرخید. همه پاسخ‌ها، شفاف و بدون پنهان‌کاری.
+  </p>
+
+  <h3>🌟 سوالات عمومی</h3>
+
+  <div class="faq-item">
+    <div class="faq-q">آیا فنریر رایگان است؟</div>
+    <div class="faq-a">فنریر یک محصول سفارشی است که با هزینه راه‌اندازی اولیه و اشتراک ماهانه ارائه می‌شود. به دلیل کیفیت بالای پشتیبانی، هزینه قابل توجیه است. برای جزئیات قیمت، با تیم تماس بگیر.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">چقدر طول می‌کشد تا فنریر برام راه‌اندازی شه؟</div>
+    <div class="faq-a">از زمان تایید درخواست، <strong>۲۴ تا ۴۸ ساعت کاری</strong>. در این مدت، تیم فنریر ربات اختصاصی، Google Sheets، و ۷ workflow را برای تو راه‌اندازی می‌کند.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">آیا فنریر روی iPhone و Android کار می‌کند؟</div>
+    <div class="faq-a">بله. چون داخل تلگرام اجرا می‌شود، روی <strong>هر دستگاهی که تلگرام دارد</strong> کار می‌کند: Mac، Windows، Linux، iPhone، Android، iPad، حتی Telegram Web در مرورگر.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">آیا نیاز به اپلیکیشن نصب کردن دارم؟</div>
+    <div class="faq-a">نه. تلگرام کافی است. مینی‌اپ <em>داخل</em> تلگرام باز می‌شود — مثل یک صفحه وب درون اپ.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">زبان فنریر چیست؟</div>
+    <div class="faq-a">فارسی روان و انگلیسی — هر دو با کیفیت بالا. لحن فنریر <em>نظامی، تاکتیکی، با ایموجی گرگ 🐺</em> است. اگر می‌خواهی لحن متفاوتی داشته باشد (مثلاً رسمی‌تر یا گرم‌تر)، در onboarding می‌توانی customize کنی.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">اگر تلگرام در منطقه من فیلتر باشد، فنریر کار می‌کند؟</div>
+    <div class="faq-a">بله. با <strong>Cloudflare Worker شخصی</strong> که هنگام راه‌اندازی برات ساخته می‌شود، حتی روی شبکه‌های فیلتر شده هم کار می‌کند. فنریر برای کاربران ایرانی و مناطق محدود طراحی شده — این یک کشف اتفاقی نیست.</div>
+  </div>
+
+  <h3>🛡️ سوالات امنیتی</h3>
+
+  <div class="faq-item">
+    <div class="faq-q">آیا کسی می‌تواند پیام‌هایم را بخواند؟</div>
+    <div class="faq-a">نه. داده‌ها روی Google Sheets شخصی <em>توست</em>. <strong>حتی تیم فنریر نمی‌تواند بخواند</strong> مگر اینکه تو explicit صریح permission بدی. این یکی از مزایای رویکرد <em>data-sovereign</em> ماست.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">اگر فنریر فردا تعطیل شد، داده‌هام چی می‌شه؟</div>
+    <div class="faq-a">داده‌ها در Google Drive <em>توست</em>. <strong>حتی اگر فنریر بسته شود، داده‌هایت هنوز در دسترس توست.</strong> می‌توانی Sheets را خودت باز کنی و ببینی. این بزرگ‌ترین تفاوت با Notion، Todoist، یا ChatGPT است.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">آیا فنریر از داده‌هام برای آموزش AI استفاده می‌کند؟</div>
+    <div class="faq-a"><strong>هرگز.</strong> این یک قول صریح است که در قرارداد ثبت شده. ما نه AI خودمان داریم، نه نیازی به training روی داده‌های شخصی شما داریم.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Gemini (Google) چطور؟</div>
+    <div class="faq-a">پیام‌ها به Gemini ارسال می‌شوند برای classification — این طبیعت کار AI است. اما <strong>Google Cloud قول داده داده‌های API برای آموزش مدل استفاده نشود</strong>. این طبق توافقنامه paid tier است. اگر می‌خواهی حتی Google هم متن پیامت را نبیند، در v9 گزینه Local AI (Ollama) فعال می‌شود.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">اگر گوشیم گم شد، چی؟</div>
+    <div class="faq-a">داده‌ها روی <em>گوگل اکانتت</em> هستند، نه گوشی. کافی است روی گوشی دیگر، تلگرامت را login کنی و ربات را باز کنی. <strong>صفر داده از دست می‌رود.</strong></div>
+  </div>
+
+  <h3>⚙️ سوالات فنی</h3>
+
+  <div class="faq-item">
+    <div class="faq-q">چرا گاهی پاسخ فنریر کند است؟</div>
+    <div class="faq-a">پاسخ AI معمولاً ۳-۸ ثانیه طول می‌کشد. اگر بیشتر شد:
+    <ul style="margin-top:.6rem">
+      <li>ممکن است Gemini شلوغ باشد (503 high demand)</li>
+      <li>سیستم retry می‌کند خودکار تا ۴ بار</li>
+      <li>اگر بعد از ۳۰ ثانیه پاسخ نیامد، error message می‌گیری</li>
+    </ul>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">چرا گاهی پیام «در حال پردازش» می‌مونه؟</div>
+    <div class="faq-a">اتصال CORS یا پراکسی موقتاً قطع شده. در OPS Tab، <strong>«🔬 تست اتصال»</strong> را بزن — مشخص می‌کند کجا مشکل است. معمولاً با تغییر VPN حل می‌شود.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">اگر بخوام پیامی رو حذف کنم؟</div>
+    <div class="faq-a">فعلاً حذف صریح در UI نیست. می‌توانی روی آیتم تپ کنی و «انجام شده» علامت بزنی، سپس «پاکسازی». این رفتار در نسخه v8 بهبود می‌یابد. <strong>برای حذف فوری، می‌تونی مستقیماً در Google Sheets ردیف را delete کنی.</strong></div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">آیا می‌توانم چندین کاربر روی یک اکانت داشته باشم؟</div>
+    <div class="faq-a">نه. هر کاربر فنریر یک اکانت اختصاصی است. برای تیم‌ها، نسخه B2B در آینده ارائه می‌شود.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">آیا می‌توانم به Google Calendar وصل کنم؟</div>
+    <div class="faq-a">این یک ویژگی در نقشه راه <strong>v9</strong> است. در حال حاضر، یادآورها از طریق تلگرام ارسال می‌شوند که برای ۹۵٪ کاربران کافی است.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">می‌تونم backup از داده‌هام داشته باشم؟</div>
+    <div class="faq-a">داده‌ها روی Google Sheets توست — <strong>Google خودش backup خودکار می‌کند</strong>. علاوه بر این، می‌توانی هر زمان از Sheets یک export (CSV/XLSX) بگیری.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">اگر بعد از مدتی پشیمون شدم چی؟</div>
+    <div class="faq-a">می‌تونی هر زمان اشتراکت رو لغو کنی. <strong>داده‌هات روی گوگل اکانت خودت باقی می‌مونه</strong> — هیچ‌چیز حذف نمی‌شه. این یک کلوپ است، نه یک زندان.</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 9 — GLOSSARY + JOIN
+     ═══════════════════════════════════════════════════════════════ -->
+<section class="sect" id="join">
+  <div class="sect-num">09</div>
+  <div class="sect-tag">▼ JOIN THE PACK</div>
+  <h1 class="sect-title">واژه‌نامه و ورود به قبیله</h1>
+  <p class="sect-sub">
+    اگر تا اینجا را خوانده‌ای، یعنی فنریر برای توست. این بخش، گذرگاه نهایی است.
+  </p>
+
+  <h3>📖 واژه‌نامه — اصطلاحات کلیدی</h3>
+
+  <div class="card">
+    <ul style="margin-bottom:0;list-style:none;margin-left:0">
+      <li style="margin-bottom:.9rem"><strong style="color:var(--g)">▸ Capture</strong> — عمل ثبت یک آیتم (متن، ویس، عکس، فایل) در فنریر</li>
+      <li style="margin-bottom:.9rem"><strong style="color:var(--cy)">▸ Cognitive Core</strong> — موتور هوش مصنوعی داخلی فنریر که پاسخ‌های شخصیتی تولید می‌کند</li>
+      <li style="margin-bottom:.9rem"><strong style="color:var(--vi)">▸ Daily Combo</strong> — یک پازل روزانه که فنریر از ایده‌های قدیمی‌ت می‌سازد</li>
+      <li style="margin-bottom:.9rem"><strong style="color:var(--am)">▸ Heartbeat Mentor</strong> — پیام روزانه ۱۲:۳۰ ظهر از فنریر بدون درخواست</li>
+      <li style="margin-bottom:.9rem"><strong style="color:var(--mag)">▸ Mini App</strong> — اپلیکیشن داخل تلگرام (Telegram Mini App) که UI اصلی فنریر است</li>
+      <li style="margin-bottom:.9rem"><strong style="color:var(--g)">▸ Pack</strong> — قبیله کاربران فنریر — اصطلاح داخلی برای community</li>
+      <li style="margin-bottom:.9rem"><strong style="color:var(--cy)">▸ Scout Drone</strong> — کد رمز نسخه فعلی فنریر (v7) — اشاره به پهپاد شناسایی</li>
+      <li style="margin-bottom:.9rem"><strong style="color:var(--vi)">▸ Second Brain</strong> — گاوصندوق دیجیتال داده‌هایت روی Google Sheets</li>
+      <li style="margin-bottom:.9rem"><strong style="color:var(--am)">▸ Streak</strong> — تعداد روزهای متوالی فعال بودن</li>
+      <li style="margin-bottom:.9rem"><strong style="color:var(--gold)">▸ Übermensch</strong> — کاربر سطح بالا که از Web3 Staking استفاده می‌کند — اصطلاح فلسفی از نیچه به معنای «ابرانسان»</li>
+      <li style="margin-bottom:.9rem"><strong style="color:var(--re)">▸ War Room</strong> — اتاق جنگ — رابط اصلی مینی‌اپ</li>
+      <li style="margin-bottom:0"><strong style="color:var(--mag)">▸ XP (Experience Points)</strong> — امتیازی که با هر کار به‌دست می‌آید</li>
+    </ul>
+  </div>
+
+  <h3>👑 سفارش اختصاصی فنریر</h3>
+
+  <p class="lead">
+    اگر این کاتالوگ را خوانده‌ای و حس می‌کنی فنریر برای توست، این پنج مرحله را طی کن:
+  </p>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <div class="step-title">درخواست ارسال کن</div>
+      <p>فرم درخواست در سایت فنریر را پر کن. <strong>۵ سوال روانی، فقط ۳ دقیقه.</strong> این سوالات به ما کمک می‌کنند بفهمیم آیا تو در «پرسوناهای هدف» قرار می‌گیری.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <div class="step-title">منتظر تایید بمان</div>
+      <p>تیم فنریر در <strong>۴۸ ساعت</strong> پاسخ می‌دهد. اگر در «پرسوناهای هدف» جا می‌گیری، تایید می‌شوی. اگر نه، با احترام پاسخ منفی می‌گیری.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <div class="step-title">Onboarding 1-on-1</div>
+      <p>یک جلسه <strong>۳۰ دقیقه‌ای Zoom</strong> با تیم. توضیح کامل، تنظیم شخصی، اولین setup. این جلسه ارزش زیادی دارد — معمولاً ۸۰٪ سوالاتت همینجا پاسخ داده می‌شود.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <div class="step-title">راه‌اندازی</div>
+      <p>ربات اختصاصی، Google Sheets، n8n workflows — همه در <strong>۲۴-۴۸ ساعت</strong> آماده می‌شوند. در این مدت، می‌تونی این کدکس را دوباره بخوانی تا آماده باشی.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-body">
+      <div class="step-title">شروع تجربه</div>
+      <p>لینک ربات و راهنمای quick start را دریافت می‌کنی. اولین پیامت را بنویس — و وارد دنیای جدیدی می‌شوی.</p>
+    </div>
+  </div>
+
+  <div class="callout callout-gold">
+    <div class="callout-ico">⚡</div>
+    <div class="callout-body">
+      <div class="callout-title">یک هشدار صادقانه</div>
+      <p>فنریر برای همه نیست. اگر فکر می‌کنی این فقط «یه اپ یادداشت‌برداری» است، احتمالاً پولت را هدر می‌دهی. <strong>فنریر برای کسانی است که می‌خواهند تحول واقعی</strong> — کسانی که می‌فهمند ابزارهای رایگان قیمت پنهان دارند، و آماده‌اند برای کیفیت بپردازند.</p>
+    </div>
+  </div>
+
+  <div class="callout callout-emerald">
+    <div class="callout-ico">🐺</div>
+    <div class="callout-body">
+      <div class="callout-title">و اگر فنریر برای توست؟</div>
+      <p>پس تو یکی از <em>گرگ‌های آلفا</em> هستی. به دسته‌ی ما خوش آمدی. این سفر شروعش زیباست، ولی <strong>پایانش، تو یک نسخه‌ی ابرانسان از خودت می‌سازی</strong>. فنریر فقط ابزار است — هنر، دست توست.</p>
+    </div>
+  </div>
+</section>
+<!-- INJECT_SECTIONS -->
+</div>
+<!-- INJECT_FOOTER -->
+</body>
+</html>
